@@ -12,6 +12,13 @@
 		879F0C0B2080C85C003BF3F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 879F0C092080C85C003BF3F2 /* Main.storyboard */; };
 		879F0C0D2080C85C003BF3F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 879F0C0C2080C85C003BF3F2 /* Assets.xcassets */; };
 		879F0C102080C85C003BF3F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 879F0C0E2080C85C003BF3F2 /* LaunchScreen.storyboard */; };
+		879F0C1C2080C8FE003BF3F2 /* CalculateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F0C172080C8FE003BF3F2 /* CalculateViewController.swift */; };
+		879F0C1D2080C8FE003BF3F2 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F0C182080C8FE003BF3F2 /* FormViewController.swift */; };
+		879F0C1E2080C8FE003BF3F2 /* InternetConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F0C192080C8FE003BF3F2 /* InternetConnection.swift */; };
+		879F0C1F2080C8FE003BF3F2 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F0C1A2080C8FE003BF3F2 /* MainTabBarController.swift */; };
+		879F0C202080C8FE003BF3F2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F0C1B2080C8FE003BF3F2 /* Message.swift */; };
+		879F0C272080C9D7003BF3F2 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 879F0C252080C9D7003BF3F2 /* index.html */; };
+		879F0C282080C9D7003BF3F2 /* map.js in Resources */ = {isa = PBXBuildFile; fileRef = 879F0C262080C9D7003BF3F2 /* map.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +29,13 @@
 		879F0C0C2080C85C003BF3F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		879F0C0F2080C85C003BF3F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		879F0C112080C85C003BF3F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		879F0C172080C8FE003BF3F2 /* CalculateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculateViewController.swift; sourceTree = "<group>"; };
+		879F0C182080C8FE003BF3F2 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		879F0C192080C8FE003BF3F2 /* InternetConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetConnection.swift; sourceTree = "<group>"; };
+		879F0C1A2080C8FE003BF3F2 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		879F0C1B2080C8FE003BF3F2 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		879F0C252080C9D7003BF3F2 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = "../../GM/GM Celings/GM Celings/Resources/Map/index.html"; sourceTree = "<group>"; };
+		879F0C262080C9D7003BF3F2 /* map.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = map.js; path = "../../GM/GM Celings/GM Celings/Resources/Map/map.js"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +52,7 @@
 		879F0BF92080C85C003BF3F2 = {
 			isa = PBXGroup;
 			children = (
+				879F0C232080C9A9003BF3F2 /* Resources */,
 				879F0C042080C85C003BF3F2 /* GM Ceilings */,
 				879F0C032080C85C003BF3F2 /* Products */,
 			);
@@ -54,6 +69,11 @@
 		879F0C042080C85C003BF3F2 /* GM Ceilings */ = {
 			isa = PBXGroup;
 			children = (
+				879F0C172080C8FE003BF3F2 /* CalculateViewController.swift */,
+				879F0C182080C8FE003BF3F2 /* FormViewController.swift */,
+				879F0C192080C8FE003BF3F2 /* InternetConnection.swift */,
+				879F0C1A2080C8FE003BF3F2 /* MainTabBarController.swift */,
+				879F0C1B2080C8FE003BF3F2 /* Message.swift */,
 				879F0C052080C85C003BF3F2 /* AppDelegate.swift */,
 				879F0C072080C85C003BF3F2 /* ViewController.swift */,
 				879F0C092080C85C003BF3F2 /* Main.storyboard */,
@@ -62,6 +82,23 @@
 				879F0C112080C85C003BF3F2 /* Info.plist */,
 			);
 			path = "GM Ceilings";
+			sourceTree = "<group>";
+		};
+		879F0C232080C9A9003BF3F2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				879F0C242080C9CA003BF3F2 /* Map */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		879F0C242080C9CA003BF3F2 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				879F0C252080C9D7003BF3F2 /* index.html */,
+				879F0C262080C9D7003BF3F2 /* map.js */,
+			);
+			name = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,7 +161,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				879F0C282080C9D7003BF3F2 /* map.js in Resources */,
 				879F0C102080C85C003BF3F2 /* LaunchScreen.storyboard in Resources */,
+				879F0C272080C9D7003BF3F2 /* index.html in Resources */,
 				879F0C0D2080C85C003BF3F2 /* Assets.xcassets in Resources */,
 				879F0C0B2080C85C003BF3F2 /* Main.storyboard in Resources */,
 			);
@@ -139,6 +178,11 @@
 			files = (
 				879F0C082080C85C003BF3F2 /* ViewController.swift in Sources */,
 				879F0C062080C85C003BF3F2 /* AppDelegate.swift in Sources */,
+				879F0C1F2080C8FE003BF3F2 /* MainTabBarController.swift in Sources */,
+				879F0C1D2080C8FE003BF3F2 /* FormViewController.swift in Sources */,
+				879F0C1C2080C8FE003BF3F2 /* CalculateViewController.swift in Sources */,
+				879F0C1E2080C8FE003BF3F2 /* InternetConnection.swift in Sources */,
+				879F0C202080C8FE003BF3F2 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +346,7 @@
 				879F0C162080C85C003BF3F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
