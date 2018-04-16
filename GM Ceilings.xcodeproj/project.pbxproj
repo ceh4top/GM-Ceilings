@@ -19,6 +19,11 @@
 		879F0C202080C8FE003BF3F2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F0C1B2080C8FE003BF3F2 /* Message.swift */; };
 		879F0C272080C9D7003BF3F2 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 879F0C252080C9D7003BF3F2 /* index.html */; };
 		879F0C282080C9D7003BF3F2 /* map.js in Resources */ = {isa = PBXBuildFile; fileRef = 879F0C262080C9D7003BF3F2 /* map.js */; };
+		879F0C3C2080DAA4003BF3F2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F0C3B2080DAA4003BF3F2 /* ProfileViewController.swift */; };
+		879F0C3E2080EC05003BF3F2 /* MeasurementsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F0C3D2080EC05003BF3F2 /* MeasurementsTableViewController.swift */; };
+		87C480832084953A00E3FFD3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C480802084953A00E3FFD3 /* CoreDataManager.swift */; };
+		87C480B520849FBD00E3FFD3 /* GM DB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 87C480B320849FBD00E3FFD3 /* GM DB.xcdatamodeld */; };
+		87C480BE2084A03D00E3FFD3 /* gm_ceilings.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 87C480BC2084A03D00E3FFD3 /* gm_ceilings.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +41,11 @@
 		879F0C1B2080C8FE003BF3F2 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		879F0C252080C9D7003BF3F2 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = "../../GM/GM Celings/GM Celings/Resources/Map/index.html"; sourceTree = "<group>"; };
 		879F0C262080C9D7003BF3F2 /* map.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = map.js; path = "../../GM/GM Celings/GM Celings/Resources/Map/map.js"; sourceTree = "<group>"; };
+		879F0C3B2080DAA4003BF3F2 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		879F0C3D2080EC05003BF3F2 /* MeasurementsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementsTableViewController.swift; sourceTree = "<group>"; };
+		87C480802084953A00E3FFD3 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		87C480B420849FBD00E3FFD3 /* GM DB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "GM DB.xcdatamodel"; sourceTree = "<group>"; };
+		87C480BD2084A03D00E3FFD3 /* gm_ceilings.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = gm_ceilings.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +79,8 @@
 		879F0C042080C85C003BF3F2 /* GM Ceilings */ = {
 			isa = PBXGroup;
 			children = (
+				87C480852084960100E3FFD3 /* Models */,
+				87C4807B20848F8100E3FFD3 /* CoreData */,
 				879F0C172080C8FE003BF3F2 /* CalculateViewController.swift */,
 				879F0C182080C8FE003BF3F2 /* FormViewController.swift */,
 				879F0C192080C8FE003BF3F2 /* InternetConnection.swift */,
@@ -76,10 +88,13 @@
 				879F0C1B2080C8FE003BF3F2 /* Message.swift */,
 				879F0C052080C85C003BF3F2 /* AppDelegate.swift */,
 				879F0C072080C85C003BF3F2 /* ViewController.swift */,
+				879F0C3D2080EC05003BF3F2 /* MeasurementsTableViewController.swift */,
 				879F0C092080C85C003BF3F2 /* Main.storyboard */,
+				879F0C3B2080DAA4003BF3F2 /* ProfileViewController.swift */,
 				879F0C0C2080C85C003BF3F2 /* Assets.xcassets */,
 				879F0C0E2080C85C003BF3F2 /* LaunchScreen.storyboard */,
 				879F0C112080C85C003BF3F2 /* Info.plist */,
+				87C480BC2084A03D00E3FFD3 /* gm_ceilings.xcdatamodeld */,
 			);
 			path = "GM Ceilings";
 			sourceTree = "<group>";
@@ -99,6 +114,22 @@
 				879F0C262080C9D7003BF3F2 /* map.js */,
 			);
 			name = Map;
+			sourceTree = "<group>";
+		};
+		87C4807B20848F8100E3FFD3 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				87C480802084953A00E3FFD3 /* CoreDataManager.swift */,
+				87C480B320849FBD00E3FFD3 /* GM DB.xcdatamodeld */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		87C480852084960100E3FFD3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,10 +209,15 @@
 			files = (
 				879F0C082080C85C003BF3F2 /* ViewController.swift in Sources */,
 				879F0C062080C85C003BF3F2 /* AppDelegate.swift in Sources */,
+				87C480B520849FBD00E3FFD3 /* GM DB.xcdatamodeld in Sources */,
 				879F0C1F2080C8FE003BF3F2 /* MainTabBarController.swift in Sources */,
 				879F0C1D2080C8FE003BF3F2 /* FormViewController.swift in Sources */,
+				87C480BE2084A03D00E3FFD3 /* gm_ceilings.xcdatamodeld in Sources */,
 				879F0C1C2080C8FE003BF3F2 /* CalculateViewController.swift in Sources */,
 				879F0C1E2080C8FE003BF3F2 /* InternetConnection.swift in Sources */,
+				879F0C3C2080DAA4003BF3F2 /* ProfileViewController.swift in Sources */,
+				879F0C3E2080EC05003BF3F2 /* MeasurementsTableViewController.swift in Sources */,
+				87C480832084953A00E3FFD3 /* CoreDataManager.swift in Sources */,
 				879F0C202080C8FE003BF3F2 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,6 +385,29 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		87C480B320849FBD00E3FFD3 /* GM DB.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				87C480B420849FBD00E3FFD3 /* GM DB.xcdatamodel */,
+			);
+			currentVersion = 87C480B420849FBD00E3FFD3 /* GM DB.xcdatamodel */;
+			path = "GM DB.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		87C480BC2084A03D00E3FFD3 /* gm_ceilings.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				87C480BD2084A03D00E3FFD3 /* gm_ceilings.xcdatamodel */,
+			);
+			currentVersion = 87C480BD2084A03D00E3FFD3 /* gm_ceilings.xcdatamodel */;
+			path = gm_ceilings.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 879F0BFA2080C85C003BF3F2 /* Project object */;
 }

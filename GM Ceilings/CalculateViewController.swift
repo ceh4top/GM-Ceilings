@@ -14,7 +14,7 @@ class CalculateViewController: UIViewController, WKScriptMessageHandler, WKNavig
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var newView: UIView!
     
-    @IBOutlet weak var activitiIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var webView: WKWebView?
     
@@ -25,12 +25,12 @@ class CalculateViewController: UIViewController, WKScriptMessageHandler, WKNavig
             Message.Show(title: "Нет подключения к интернету", message: "Для успешной работы приложения, необходимо быть подключенным к сети интернет.", controller: self)
         }
         
-        let url = NSURL(string: "http://calc.gm-vrn.ru")
+        let url = NSURL(string: "http://test1.gm-vrn.ru/index.php?option=com_gm_ceiling&view=calculationform&type=calculator&subtype=calendar&precalculation=1")
         let request = NSURLRequest(url:url! as URL)
         self.webView!.load(request as URLRequest)
         self.webView?.navigationDelegate = self
         
-        self.activitiIndicator.startAnimating()
+        self.activityIndicator.startAnimating()
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,10 +59,10 @@ class CalculateViewController: UIViewController, WKScriptMessageHandler, WKNavig
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        self.activitiIndicator.stopAnimating()
+        self.activityIndicator.stopAnimating()
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        self.activitiIndicator.stopAnimating()
+        self.activityIndicator.stopAnimating()
     }
 }

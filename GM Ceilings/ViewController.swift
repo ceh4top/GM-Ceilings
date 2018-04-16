@@ -10,8 +10,10 @@ import UIKit
 import WebKit
 import CoreLocation
 
-class ViewController: UIViewController, WKScriptMessageHandler, UISearchBarDelegate, CLLocationManagerDelegate {
+class ViewController: UIViewController, WKScriptMessageHandler, WKNavigationDelegate, UISearchBarDelegate, CLLocationManagerDelegate {
     @IBOutlet weak var navigationBar: UINavigationItem!
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet var newViewStrong: UIView!
     @IBOutlet weak var nextPage: UIButton!
@@ -78,6 +80,10 @@ class ViewController: UIViewController, WKScriptMessageHandler, UISearchBarDeleg
         let url = NSURL(fileURLWithPath: Bundle.main.path(forResource: "index", ofType: "html")!)
         let req = NSURLRequest(url:url as URL)
         self.webView!.load(req as URLRequest)
+        
+        self.webView?.navigationDelegate = self
+        
+        self.activityIndicator.startAnimating()
     }
     
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
@@ -108,11 +114,11 @@ class ViewController: UIViewController, WKScriptMessageHandler, UISearchBarDeleg
                 if let search = self.navigationItem.titleView as? UISearchBar {
                     if search.text! != "" {
                         fvc.clientAddressMap = search.text
-                        self.navigationItem.title = "Карта"
                     }
                 }
             }
         }
+        self.navigationItem.title = "Карта"
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -136,6 +142,14 @@ class ViewController: UIViewController, WKScriptMessageHandler, UISearchBarDeleg
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         webView?.evaluateJavaScript("GetAddress()");
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        self.activityIndicator.stopAnimating()
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        self.activityIndicator.stopAnimating()
     }
 }
 
