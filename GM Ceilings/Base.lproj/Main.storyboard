@@ -58,7 +58,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="AC6-kH-8Im">
                         <view key="titleView" contentMode="scaleToFill" id="Cov-60-nXi" customClass="UISearchBar">
-                            <rect key="frame" x="81" y="0.0" width="159" height="44"/>
+                            <rect key="frame" x="80.5" y="0.0" width="159" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="tintColor" red="0.20784313730000001" green="0.12549019610000001" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -392,6 +392,10 @@
         <scene sceneID="WUv-zc-fM9">
             <objects>
                 <viewController id="Wjr-ZI-1db" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="r9F-En-U84"/>
+                        <viewControllerLayoutGuide type="bottom" id="3sf-Ak-vea"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uZe-Yc-6gg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

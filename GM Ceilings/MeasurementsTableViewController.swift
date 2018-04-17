@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 class MeasurementsTableViewController: UITableViewController {
+    
+    var fetchedResultsController = CoreDataManager.instance.fetchedResultsController("EMeasurement", keyForSort: "dateTimeMeasurement")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,11 +20,11 @@ class MeasurementsTableViewController: UITableViewController {
             search.placeholder = "Введите адрес"
         }
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            print(error)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,19 +40,20 @@ class MeasurementsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        if let sections = fetchedResultsController.sections {
+            return sections[section].numberOfObjects
+        } else {
+            return 0
+        }
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let customer = fetchedResultsController.object(at: indexPath as IndexPath) as! EMeasurement
+        let cell = UITableViewCell()
+        cell.textLabel?.text = customer.address
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.

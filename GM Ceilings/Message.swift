@@ -19,5 +19,6 @@ public class Message {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Хорошо", style: UIAlertActionStyle.default, handler: nil))
         return alert
+        
     }
 }

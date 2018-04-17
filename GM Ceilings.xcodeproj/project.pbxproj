@@ -21,9 +21,12 @@
 		879F0C282080C9D7003BF3F2 /* map.js in Resources */ = {isa = PBXBuildFile; fileRef = 879F0C262080C9D7003BF3F2 /* map.js */; };
 		879F0C3C2080DAA4003BF3F2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F0C3B2080DAA4003BF3F2 /* ProfileViewController.swift */; };
 		879F0C3E2080EC05003BF3F2 /* MeasurementsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F0C3D2080EC05003BF3F2 /* MeasurementsTableViewController.swift */; };
+		87A207342085C40C00B5FC29 /* EMeasurement+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A207302085C40C00B5FC29 /* EMeasurement+CoreDataClass.swift */; };
+		87A207352085C40C00B5FC29 /* EMeasurement+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A207312085C40C00B5FC29 /* EMeasurement+CoreDataProperties.swift */; };
+		87A207362085C40C00B5FC29 /* EUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A207322085C40C00B5FC29 /* EUser+CoreDataClass.swift */; };
+		87A207372085C40C00B5FC29 /* EUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A207332085C40C00B5FC29 /* EUser+CoreDataProperties.swift */; };
 		87C480832084953A00E3FFD3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C480802084953A00E3FFD3 /* CoreDataManager.swift */; };
 		87C480B520849FBD00E3FFD3 /* GM DB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 87C480B320849FBD00E3FFD3 /* GM DB.xcdatamodeld */; };
-		87C480BE2084A03D00E3FFD3 /* gm_ceilings.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 87C480BC2084A03D00E3FFD3 /* gm_ceilings.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,9 +46,12 @@
 		879F0C262080C9D7003BF3F2 /* map.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = map.js; path = "../../GM/GM Celings/GM Celings/Resources/Map/map.js"; sourceTree = "<group>"; };
 		879F0C3B2080DAA4003BF3F2 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		879F0C3D2080EC05003BF3F2 /* MeasurementsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementsTableViewController.swift; sourceTree = "<group>"; };
+		87A207302085C40C00B5FC29 /* EMeasurement+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EMeasurement+CoreDataClass.swift"; path = "Models/EMeasurement+CoreDataClass.swift"; sourceTree = "<group>"; };
+		87A207312085C40C00B5FC29 /* EMeasurement+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EMeasurement+CoreDataProperties.swift"; path = "Models/EMeasurement+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		87A207322085C40C00B5FC29 /* EUser+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EUser+CoreDataClass.swift"; path = "Models/EUser+CoreDataClass.swift"; sourceTree = "<group>"; };
+		87A207332085C40C00B5FC29 /* EUser+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EUser+CoreDataProperties.swift"; path = "Models/EUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		87C480802084953A00E3FFD3 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		87C480B420849FBD00E3FFD3 /* GM DB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "GM DB.xcdatamodel"; sourceTree = "<group>"; };
-		87C480BD2084A03D00E3FFD3 /* gm_ceilings.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = gm_ceilings.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,7 @@
 		879F0C042080C85C003BF3F2 /* GM Ceilings */ = {
 			isa = PBXGroup;
 			children = (
+				87EAF1092084C4FF0052C818 /* Measurments */,
 				87C480852084960100E3FFD3 /* Models */,
 				87C4807B20848F8100E3FFD3 /* CoreData */,
 				879F0C172080C8FE003BF3F2 /* CalculateViewController.swift */,
@@ -88,13 +95,11 @@
 				879F0C1B2080C8FE003BF3F2 /* Message.swift */,
 				879F0C052080C85C003BF3F2 /* AppDelegate.swift */,
 				879F0C072080C85C003BF3F2 /* ViewController.swift */,
-				879F0C3D2080EC05003BF3F2 /* MeasurementsTableViewController.swift */,
 				879F0C092080C85C003BF3F2 /* Main.storyboard */,
 				879F0C3B2080DAA4003BF3F2 /* ProfileViewController.swift */,
 				879F0C0C2080C85C003BF3F2 /* Assets.xcassets */,
 				879F0C0E2080C85C003BF3F2 /* LaunchScreen.storyboard */,
 				879F0C112080C85C003BF3F2 /* Info.plist */,
-				87C480BC2084A03D00E3FFD3 /* gm_ceilings.xcdatamodeld */,
 			);
 			path = "GM Ceilings";
 			sourceTree = "<group>";
@@ -128,8 +133,20 @@
 		87C480852084960100E3FFD3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				87A207302085C40C00B5FC29 /* EMeasurement+CoreDataClass.swift */,
+				87A207312085C40C00B5FC29 /* EMeasurement+CoreDataProperties.swift */,
+				87A207322085C40C00B5FC29 /* EUser+CoreDataClass.swift */,
+				87A207332085C40C00B5FC29 /* EUser+CoreDataProperties.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		87EAF1092084C4FF0052C818 /* Measurments */ = {
+			isa = PBXGroup;
+			children = (
+				879F0C3D2080EC05003BF3F2 /* MeasurementsTableViewController.swift */,
+			);
+			name = Measurments;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,17 +224,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87A207372085C40C00B5FC29 /* EUser+CoreDataProperties.swift in Sources */,
 				879F0C082080C85C003BF3F2 /* ViewController.swift in Sources */,
 				879F0C062080C85C003BF3F2 /* AppDelegate.swift in Sources */,
 				87C480B520849FBD00E3FFD3 /* GM DB.xcdatamodeld in Sources */,
 				879F0C1F2080C8FE003BF3F2 /* MainTabBarController.swift in Sources */,
+				87A207352085C40C00B5FC29 /* EMeasurement+CoreDataProperties.swift in Sources */,
 				879F0C1D2080C8FE003BF3F2 /* FormViewController.swift in Sources */,
-				87C480BE2084A03D00E3FFD3 /* gm_ceilings.xcdatamodeld in Sources */,
 				879F0C1C2080C8FE003BF3F2 /* CalculateViewController.swift in Sources */,
 				879F0C1E2080C8FE003BF3F2 /* InternetConnection.swift in Sources */,
 				879F0C3C2080DAA4003BF3F2 /* ProfileViewController.swift in Sources */,
+				87A207342085C40C00B5FC29 /* EMeasurement+CoreDataClass.swift in Sources */,
 				879F0C3E2080EC05003BF3F2 /* MeasurementsTableViewController.swift in Sources */,
 				87C480832084953A00E3FFD3 /* CoreDataManager.swift in Sources */,
+				87A207362085C40C00B5FC29 /* EUser+CoreDataClass.swift in Sources */,
 				879F0C202080C8FE003BF3F2 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,16 +414,6 @@
 			);
 			currentVersion = 87C480B420849FBD00E3FFD3 /* GM DB.xcdatamodel */;
 			path = "GM DB.xcdatamodeld";
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		87C480BC2084A03D00E3FFD3 /* gm_ceilings.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				87C480BD2084A03D00E3FFD3 /* gm_ceilings.xcdatamodel */,
-			);
-			currentVersion = 87C480BD2084A03D00E3FFD3 /* gm_ceilings.xcdatamodel */;
-			path = gm_ceilings.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

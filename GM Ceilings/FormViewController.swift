@@ -86,6 +86,7 @@ class FormViewController: UIViewController, UIScrollViewDelegate {
                     if let m = json?["message"] as? String {
                         message = m
                     }
+                    self.saveDataForDB()
                 }
                 else if status == 3 {
                     title = "Сервер не отвечает"
@@ -100,6 +101,20 @@ class FormViewController: UIViewController, UIScrollViewDelegate {
     
     func sendAddress() {
         self.clientAddress?.text = clientAddressMap
+    }
+    
+    func saveDataForDB() {
+        let measurment = EMeasurement()
+        measurment.address = clientAddress.text
+        measurment.dateTimeMeasurement = clientDataTime.date as NSDate?
+        
+        let user = EUser()
+        user.name = clientName.text
+        user.phone = clientPhone.text
+        user.addToMeasurement(measurment)
+        
+        CoreDataManager.instance.saveContext()
+        
     }
     
     override func viewDidLoad() {
