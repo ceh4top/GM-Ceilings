@@ -1,6 +1,6 @@
 //
 //  CalculateViewController.swift
-//  GM Celings
+//  GM Ceilings
 //
 //  Created by GM on 13.04.18.
 //  Copyright © 2018 GM. All rights reserved.
