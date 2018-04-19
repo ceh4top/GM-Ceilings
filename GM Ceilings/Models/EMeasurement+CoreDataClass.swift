@@ -12,5 +12,8 @@ import CoreData
 
 @objc(EMeasurement)
 public class EMeasurement: NSManagedObject {
-
+    convenience init() {
+        let entity = NSEntityDescription.entity(forEntityName: "EMeasurement", in: CoreDataManager.instance.managedObjectContext)
+        self.init(entity: entity!, insertInto: CoreDataManager.instance.managedObjectContext)
+    }
 }

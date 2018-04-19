@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87208B2720887D0300754113 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87208B2620887D0300754113 /* Helper.swift */; };
+		87208B2A2088811C00754113 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87208B292088811C00754113 /* FileManager.swift */; };
 		879F0C062080C85C003BF3F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F0C052080C85C003BF3F2 /* AppDelegate.swift */; };
 		879F0C082080C85C003BF3F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F0C072080C85C003BF3F2 /* ViewController.swift */; };
 		879F0C0B2080C85C003BF3F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 879F0C092080C85C003BF3F2 /* Main.storyboard */; };
@@ -25,11 +27,15 @@
 		87A207352085C40C00B5FC29 /* EMeasurement+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A207312085C40C00B5FC29 /* EMeasurement+CoreDataProperties.swift */; };
 		87A207362085C40C00B5FC29 /* EUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A207322085C40C00B5FC29 /* EUser+CoreDataClass.swift */; };
 		87A207372085C40C00B5FC29 /* EUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A207332085C40C00B5FC29 /* EUser+CoreDataProperties.swift */; };
+		87A2073C2085CCF500B5FC29 /* MeasurmentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2073B2085CCF500B5FC29 /* MeasurmentsTableViewCell.swift */; };
 		87C480832084953A00E3FFD3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C480802084953A00E3FFD3 /* CoreDataManager.swift */; };
 		87C480B520849FBD00E3FFD3 /* GM DB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 87C480B320849FBD00E3FFD3 /* GM DB.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		87208B2620887D0300754113 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helper.swift; path = Helpers/Helper.swift; sourceTree = "<group>"; };
+		87208B282088807100754113 /* Data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Data.json; path = "GM Ceilings/Resources/Data.json"; sourceTree = "<group>"; };
+		87208B292088811C00754113 /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileManager.swift; path = Helpers/FileManager.swift; sourceTree = "<group>"; };
 		879F0C022080C85C003BF3F2 /* GM Ceilings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GM Ceilings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		879F0C052080C85C003BF3F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		879F0C072080C85C003BF3F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,9 +45,9 @@
 		879F0C112080C85C003BF3F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		879F0C172080C8FE003BF3F2 /* CalculateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculateViewController.swift; sourceTree = "<group>"; };
 		879F0C182080C8FE003BF3F2 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
-		879F0C192080C8FE003BF3F2 /* InternetConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetConnection.swift; sourceTree = "<group>"; };
+		879F0C192080C8FE003BF3F2 /* InternetConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InternetConnection.swift; path = Helpers/InternetConnection.swift; sourceTree = "<group>"; };
 		879F0C1A2080C8FE003BF3F2 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		879F0C1B2080C8FE003BF3F2 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		879F0C1B2080C8FE003BF3F2 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Helpers/Message.swift; sourceTree = "<group>"; };
 		879F0C252080C9D7003BF3F2 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = "../../GM/GM Celings/GM Celings/Resources/Map/index.html"; sourceTree = "<group>"; };
 		879F0C262080C9D7003BF3F2 /* map.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = map.js; path = "../../GM/GM Celings/GM Celings/Resources/Map/map.js"; sourceTree = "<group>"; };
 		879F0C3B2080DAA4003BF3F2 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +56,8 @@
 		87A207312085C40C00B5FC29 /* EMeasurement+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EMeasurement+CoreDataProperties.swift"; path = "Models/EMeasurement+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		87A207322085C40C00B5FC29 /* EUser+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EUser+CoreDataClass.swift"; path = "Models/EUser+CoreDataClass.swift"; sourceTree = "<group>"; };
 		87A207332085C40C00B5FC29 /* EUser+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EUser+CoreDataProperties.swift"; path = "Models/EUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		87C480802084953A00E3FFD3 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		87A2073B2085CCF500B5FC29 /* MeasurmentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurmentsTableViewCell.swift; sourceTree = "<group>"; };
+		87C480802084953A00E3FFD3 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = CoreData/CoreDataManager.swift; sourceTree = "<group>"; };
 		87C480B420849FBD00E3FFD3 /* GM DB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "GM DB.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,6 +72,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		87208B2520887CDB00754113 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				879F0C192080C8FE003BF3F2 /* InternetConnection.swift */,
+				879F0C1B2080C8FE003BF3F2 /* Message.swift */,
+				87208B2620887D0300754113 /* Helper.swift */,
+				87208B292088811C00754113 /* FileManager.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		879F0BF92080C85C003BF3F2 = {
 			isa = PBXGroup;
 			children = (
@@ -85,14 +103,13 @@
 		879F0C042080C85C003BF3F2 /* GM Ceilings */ = {
 			isa = PBXGroup;
 			children = (
+				87208B2520887CDB00754113 /* Helpers */,
 				87EAF1092084C4FF0052C818 /* Measurments */,
 				87C480852084960100E3FFD3 /* Models */,
 				87C4807B20848F8100E3FFD3 /* CoreData */,
 				879F0C172080C8FE003BF3F2 /* CalculateViewController.swift */,
 				879F0C182080C8FE003BF3F2 /* FormViewController.swift */,
-				879F0C192080C8FE003BF3F2 /* InternetConnection.swift */,
 				879F0C1A2080C8FE003BF3F2 /* MainTabBarController.swift */,
-				879F0C1B2080C8FE003BF3F2 /* Message.swift */,
 				879F0C052080C85C003BF3F2 /* AppDelegate.swift */,
 				879F0C072080C85C003BF3F2 /* ViewController.swift */,
 				879F0C092080C85C003BF3F2 /* Main.storyboard */,
@@ -108,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				879F0C242080C9CA003BF3F2 /* Map */,
+				87208B282088807100754113 /* Data.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -144,6 +162,7 @@
 		87EAF1092084C4FF0052C818 /* Measurments */ = {
 			isa = PBXGroup;
 			children = (
+				87A2073B2085CCF500B5FC29 /* MeasurmentsTableViewCell.swift */,
 				879F0C3D2080EC05003BF3F2 /* MeasurementsTableViewController.swift */,
 			);
 			name = Measurments;
@@ -224,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87A2073C2085CCF500B5FC29 /* MeasurmentsTableViewCell.swift in Sources */,
 				87A207372085C40C00B5FC29 /* EUser+CoreDataProperties.swift in Sources */,
 				879F0C082080C85C003BF3F2 /* ViewController.swift in Sources */,
 				879F0C062080C85C003BF3F2 /* AppDelegate.swift in Sources */,
@@ -231,12 +251,14 @@
 				879F0C1F2080C8FE003BF3F2 /* MainTabBarController.swift in Sources */,
 				87A207352085C40C00B5FC29 /* EMeasurement+CoreDataProperties.swift in Sources */,
 				879F0C1D2080C8FE003BF3F2 /* FormViewController.swift in Sources */,
+				87208B2720887D0300754113 /* Helper.swift in Sources */,
 				879F0C1C2080C8FE003BF3F2 /* CalculateViewController.swift in Sources */,
 				879F0C1E2080C8FE003BF3F2 /* InternetConnection.swift in Sources */,
 				879F0C3C2080DAA4003BF3F2 /* ProfileViewController.swift in Sources */,
 				87A207342085C40C00B5FC29 /* EMeasurement+CoreDataClass.swift in Sources */,
 				879F0C3E2080EC05003BF3F2 /* MeasurementsTableViewController.swift in Sources */,
 				87C480832084953A00E3FFD3 /* CoreDataManager.swift in Sources */,
+				87208B2A2088811C00754113 /* FileManager.swift in Sources */,
 				87A207362085C40C00B5FC29 /* EUser+CoreDataClass.swift in Sources */,
 				879F0C202080C8FE003BF3F2 /* Message.swift in Sources */,
 			);

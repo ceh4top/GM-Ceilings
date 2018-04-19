@@ -4,40 +4,18 @@
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="apartmentNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dateTimeMeasurement" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" indexed="YES" syncable="YES"/>
         <attribute name="user_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="EUser" inverseName="measurement" inverseEntity="EUser" syncable="YES"/>
-        <compoundIndexes>
-            <compoundIndex>
-                <index value="id"/>
-            </compoundIndex>
-        </compoundIndexes>
-        <uniquenessConstraints>
-            <uniquenessConstraint>
-                <constraint value="id"/>
-            </uniquenessConstraint>
-        </uniquenessConstraints>
     </entity>
     <entity name="EUser" representedClassName="EUser" syncable="YES">
-        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" indexed="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="work" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="measurement" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EMeasurement" inverseName="user" inverseEntity="EMeasurement" syncable="YES"/>
-        <compoundIndexes>
-            <compoundIndex>
-                <index value="id"/>
-            </compoundIndex>
-        </compoundIndexes>
-        <uniquenessConstraints>
-            <uniquenessConstraint>
-                <constraint value="id"/>
-            </uniquenessConstraint>
-        </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="EMeasurement" positionX="-2729" positionY="254" width="128" height="135"/>
-        <element name="EUser" positionX="-2466" positionY="270" width="126" height="135"/>
+        <element name="EMeasurement" positionX="-2729" positionY="254" width="128" height="120"/>
+        <element name="EUser" positionX="-2466" positionY="270" width="126" height="120"/>
     </elements>
 </model>

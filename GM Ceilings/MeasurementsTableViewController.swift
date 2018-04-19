@@ -9,98 +9,139 @@
 import UIKit
 import CoreData
 
-class MeasurementsTableViewController: UITableViewController {
+class MeasurementsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UISearchBarDelegate {
     
-    var fetchedResultsController = CoreDataManager.instance.fetchedResultsController("EMeasurement", keyForSort: "dateTimeMeasurement")
+    var fetchedResultsController : NSFetchedResultsController<NSFetchRequestResult>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fetchedResultsController = getRowsOfEMeasurement(filter: nil)
+        
         if let search = self.navigationItem.titleView as? UISearchBar {
-            search.placeholder = "Введите адрес"
+            search.placeholder = "Введите"
         }
 
+        fetchedResultsController?.delegate = self
         do {
-            try fetchedResultsController.performFetch()
+            try fetchedResultsController?.performFetch()
         } catch {
             print(error)
         }
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        
+        // this is the replacement of implementing: "collectionView.addSubview(refreshControl)"
+        self.refreshControl = refreshControl
+    }
+    
+    func getRowsOfEMeasurement(filter: String?) -> NSFetchedResultsController<NSFetchRequestResult> {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "EMeasurement")
+        
+        let sortDescriptor = NSSortDescriptor(key: "dateTimeMeasurement", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        if var filter = filter as String! {
+            filter = Helper.removeSpecialCharsFromString(text: filter)
+            let predicate = NSPredicate(format: "address MATCHES[cd] '.*(\(filter)).*' or user.name MATCHES[cd] '.*(\(filter)).*' or user.phone MATCHES[cd] '.*(\(filter)).*'")
+            fetchRequest.predicate = predicate
+        }
+        
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataManager.instance.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        
+        return fetchedResultsController
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let sections = fetchedResultsController.sections {
+        if let sections = fetchedResultsController?.sections {
             return sections[section].numberOfObjects
         } else {
             return 0
         }
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let customer = fetchedResultsController.object(at: indexPath as IndexPath) as! EMeasurement
-        let cell = UITableViewCell()
-        cell.textLabel?.text = customer.address
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> MeasurmentsTableViewCell {
+        let measurement = fetchedResultsController?.object(at: indexPath as IndexPath) as! EMeasurement
+        let cell = tableView.dequeueReusableCell(withIdentifier: "measurementsCell") as! MeasurmentsTableViewCell
+        
+        var address : String? = ""
+        var user : String? = ""
+        var date : String? = ""
+        
+        if (measurement.address != nil) {
+            address = measurement.address
+        }
+        
+        if (measurement.apartmentNumber != nil) {
+            address = address! + " кв. " + (measurement.apartmentNumber)!
+        }
+        
+        if (measurement.user?.name != nil) {
+            user = measurement.user?.name
+        }
+        
+        if (measurement.user?.phone != nil) {
+            user = user! + " тел: " + (measurement.user?.phone)!
+        }
+        
+        if (measurement.dateTimeMeasurement != nil) {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
+            date = String(describing: dateFormatter.string(from: measurement.dateTimeMeasurement as! Date) )
+        }
+        
+        cell.address?.text = address
+        cell.user?.text = user
+        cell.date?.text = date
+        
         return cell
     }
- 
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    public func refresh(sender:AnyObject)
+    {
+        do {
+            try fetchedResultsController?.performFetch()
+        } catch {
+            print(error)
+        }
+        
+        self.tableView.reloadData()
+        self.refreshControl?.endRefreshing()
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         self.navigationItem.title = "Замеры"
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.fetchedResultsController = getRowsOfEMeasurement(filter: searchText)
+        
+        do {
+            try fetchedResultsController?.performFetch()
+        } catch {
+            print(error)
+        }
+        
+        self.tableView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let search = self.navigationItem.titleView as? UISearchBar {
+            self.fetchedResultsController = getRowsOfEMeasurement(filter: search.text)
+        }
+        
+        do {
+            try fetchedResultsController?.performFetch()
+        } catch {
+            print(error)
+        }
+        
+        self.tableView.reloadData()
+        searchBar.resignFirstResponder()
     }
 }

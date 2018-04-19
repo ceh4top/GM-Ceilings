@@ -16,7 +16,6 @@ extension EUser {
         return NSFetchRequest<EUser>(entityName: "EUser");
     }
 
-    @NSManaged public var id: Int32
     @NSManaged public var name: String?
     @NSManaged public var password: String?
     @NSManaged public var phone: String?

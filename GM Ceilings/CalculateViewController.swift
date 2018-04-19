@@ -25,7 +25,7 @@ class CalculateViewController: UIViewController, WKScriptMessageHandler, WKNavig
             Message.Show(title: "Нет подключения к интернету", message: "Для успешной работы приложения, необходимо быть подключенным к сети интернет.", controller: self)
         }
         
-        let url = NSURL(string: "http://test1.gm-vrn.ru/index.php?option=com_gm_ceiling&view=calculationform&type=calculator&subtype=calendar&precalculation=1")
+        let url = NSURL(string: "http://test1.gm-vrn.ru/index.php?option=com_gm_ceiling&view=calculationform2&type=calculator&subtype=calendar&calc_id=%221%22&precalculation=1&api=1")
         let request = NSURLRequest(url:url! as URL)
         self.webView!.load(request as URLRequest)
         self.webView?.navigationDelegate = self
@@ -56,6 +56,15 @@ class CalculateViewController: UIViewController, WKScriptMessageHandler, WKNavig
     
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         
+    }
+    
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    
+    func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {

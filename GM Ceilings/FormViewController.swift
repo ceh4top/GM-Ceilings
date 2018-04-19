@@ -10,9 +10,10 @@ import UIKit
 
 class FormViewController: UIViewController, UIScrollViewDelegate {
     
+    @IBOutlet weak var check: UISwitch!
     @IBOutlet weak var clientName: UITextField!
     @IBOutlet weak var clientPhone: UITextField!
-    @IBOutlet weak var clientAddress: UILabel!
+    @IBOutlet weak var clientAddress: UITextField!
     @IBOutlet weak var clientaApartmentNumber: UITextField!
     @IBOutlet weak var clientDataTime: UIDatePicker!
     @IBOutlet weak var sendData: UIButton!
@@ -27,19 +28,24 @@ class FormViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func sendDataForServer() {
-        var success = true
+        var success = 0
         var parameters: [String : String] = ["Type":"Client"]
         
-        if (clientName.text == "") {success = false}
-        if (clientPhone.text == "") {success = false}
-        if (clientAddress.text == "") {success = false}
+        if (clientName.text == "") {success = 1}
+        if (clientPhone.text == "") {success = 1}
+        if (clientAddress.text == "") {success = 1}
         
         let phone = clientPhone.text!
         if phone.characters.count < 10 || phone.characters.count > 12 {
-            success = false
+            success = 1
         }
         
-        if success {
+        if !check.isOn {
+            Message.Show(title: "Соглашение", message: "Для записи на замер, нам нужно согласие на обработку ваших данных", controller: self)
+            success = 2
+        }
+        
+        if success == 0 {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
             let strDate = dateFormatter.string(from: clientDataTime.date)
@@ -52,7 +58,7 @@ class FormViewController: UIViewController, UIScrollViewDelegate {
             
             sendDataComplite(parameters: parameters)
         }
-        else
+        else if success == 1
         {
             Message.Show(title: "Введите данные", message: "Введены не все данные или неправильно. Проверте данные и исправьте", controller: self)
         }
