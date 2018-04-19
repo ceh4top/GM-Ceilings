@@ -1,6 +1,6 @@
 //
 //  CalculateViewController.swift
-//  GM Ceilings
+//  GM Celings
 //
 //  Created by GM on 13.04.18.
 //  Copyright © 2018 GM. All rights reserved.
@@ -25,7 +25,7 @@ class CalculateViewController: UIViewController, WKScriptMessageHandler, WKNavig
             Message.Show(title: "Нет подключения к интернету", message: "Для успешной работы приложения, необходимо быть подключенным к сети интернет.", controller: self)
         }
         
-        let url = NSURL(string: "http://test1.gm-vrn.ru/index.php?option=com_gm_ceiling&view=calculationform2&type=calculator&subtype=calendar&calc_id=%221%22&precalculation=1&api=1")
+        let url = NSURL(string: "http://test1.gm-vrn.ru/index.php?option=com_gm_ceiling&view=calculationform2&type=calculator&subtype=calendar&calc_id=100&precalculation=1&api=1")
         let request = NSURLRequest(url:url! as URL)
         self.webView!.load(request as URLRequest)
         self.webView?.navigationDelegate = self

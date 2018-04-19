@@ -11,6 +11,10 @@ import CoreData
 
 class MeasurementsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UISearchBarDelegate {
     
+    @IBAction func goOtherPage(_ sender: Any) {
+        self.tabBarController?.selectedIndex = 1
+    }
+    
     var fetchedResultsController : NSFetchedResultsController<NSFetchRequestResult>?
 
     override func viewDidLoad() {

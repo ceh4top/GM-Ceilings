@@ -14,13 +14,16 @@ class ViewController: UIViewController, WKScriptMessageHandler, WKNavigationDele
     @IBOutlet weak var navigationBar: UINavigationItem!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
     @IBOutlet var newViewStrong: UIView!
     @IBOutlet weak var nextPage: UIButton!
     @IBOutlet weak var newView: UIView!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet var containerView : UIView! = nil
     var webView: WKWebView?
+    
+    @IBAction func goOtherPage(_ sender: Any) {
+        self.tabBarController?.selectedIndex = 2
+    }
     
     var locationManager:CLLocationManager! = CLLocationManager()
     
