@@ -102,6 +102,14 @@ class MeasurementsTableViewController: UITableViewController, NSFetchedResultsCo
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let managedObject = fetchedResultsController?.object(at: indexPath as IndexPath) as! NSManagedObject
+            CoreDataManager.instance.managedObjectContext.delete(managedObject)
+            CoreDataManager.instance.saveContext()
+        }
+    }
+    
     public func refresh(sender:AnyObject)
     {
         do {
@@ -143,5 +151,17 @@ class MeasurementsTableViewController: UITableViewController, NSFetchedResultsCo
         
         self.tableView.reloadData()
         searchBar.resignFirstResponder()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .delete:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath as IndexPath], with: .automatic)
+            }
+            break
+        default:
+            break
+        }
     }
 }

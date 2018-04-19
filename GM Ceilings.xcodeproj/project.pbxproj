@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		87208B2720887D0300754113 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87208B2620887D0300754113 /* Helper.swift */; };
-		87208B2A2088811C00754113 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87208B292088811C00754113 /* FileManager.swift */; };
 		879F0C062080C85C003BF3F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F0C052080C85C003BF3F2 /* AppDelegate.swift */; };
 		879F0C082080C85C003BF3F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F0C072080C85C003BF3F2 /* ViewController.swift */; };
 		879F0C0B2080C85C003BF3F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 879F0C092080C85C003BF3F2 /* Main.storyboard */; };
@@ -34,8 +33,6 @@
 
 /* Begin PBXFileReference section */
 		87208B2620887D0300754113 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helper.swift; path = Helpers/Helper.swift; sourceTree = "<group>"; };
-		87208B282088807100754113 /* Data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Data.json; path = "GM Ceilings/Resources/Data.json"; sourceTree = "<group>"; };
-		87208B292088811C00754113 /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileManager.swift; path = Helpers/FileManager.swift; sourceTree = "<group>"; };
 		879F0C022080C85C003BF3F2 /* GM Ceilings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GM Ceilings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		879F0C052080C85C003BF3F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		879F0C072080C85C003BF3F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,7 +75,6 @@
 				879F0C192080C8FE003BF3F2 /* InternetConnection.swift */,
 				879F0C1B2080C8FE003BF3F2 /* Message.swift */,
 				87208B2620887D0300754113 /* Helper.swift */,
-				87208B292088811C00754113 /* FileManager.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -125,7 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				879F0C242080C9CA003BF3F2 /* Map */,
-				87208B282088807100754113 /* Data.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -258,7 +253,6 @@
 				87A207342085C40C00B5FC29 /* EMeasurement+CoreDataClass.swift in Sources */,
 				879F0C3E2080EC05003BF3F2 /* MeasurementsTableViewController.swift in Sources */,
 				87C480832084953A00E3FFD3 /* CoreDataManager.swift in Sources */,
-				87208B2A2088811C00754113 /* FileManager.swift in Sources */,
 				87A207362085C40C00B5FC29 /* EUser+CoreDataClass.swift in Sources */,
 				879F0C202080C8FE003BF3F2 /* Message.swift in Sources */,
 			);

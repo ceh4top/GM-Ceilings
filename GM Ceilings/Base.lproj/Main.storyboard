@@ -97,29 +97,29 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="54"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mxr-TW-gvU" id="aIW-gn-7H2">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="zhk-le-nge">
                                             <rect key="frame" x="10" y="0.0" width="300" height="54"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WI3-uX-Mwi">
-                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="34"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="32.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="D36-nB-h5l">
-                                                    <rect key="frame" x="0.0" y="34" width="300" height="20"/>
+                                                    <rect key="frame" x="0.0" y="32.5" width="300" height="21.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0X-Fu-df7">
-                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="21.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zEk-pJ-bEO">
-                                                            <rect key="frame" x="150" y="0.0" width="150" height="20"/>
+                                                            <rect key="frame" x="150" y="0.0" width="150" height="21.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -203,7 +203,7 @@
                                                 <rect key="frame" x="0.0" y="30.5" width="300" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="yes" returnKeyType="done"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Номер телефона:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bx-O7-P84">
                                                 <rect key="frame" x="0.0" y="70.5" width="300" height="20.5"/>
@@ -215,7 +215,7 @@
                                                 <rect key="frame" x="0.0" y="101" width="300" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Адрес:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zj-Gh-7km">
                                                 <rect key="frame" x="0.0" y="141" width="300" height="20.5"/>
@@ -227,7 +227,7 @@
                                                 <rect key="frame" x="0.0" y="171.5" width="300" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Номер квартиры:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVH-p5-eyU">
                                                 <rect key="frame" x="0.0" y="211.5" width="300" height="20.5"/>
@@ -239,7 +239,7 @@
                                                 <rect key="frame" x="0.0" y="242" width="300" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дата и время замера:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C9n-vp-x2Z">
                                                 <rect key="frame" x="0.0" y="282" width="300" height="20.5"/>
@@ -423,7 +423,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xic-I9-BfB" userLabel="Create" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Заказать замер" image="create" id="h5T-y9-PA3"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="Назад" id="Rfs-BZ-GhH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rfs-BZ-GhH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -476,6 +476,15 @@
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="IhC-k9-Gnu">
                                         <rect key="frame" x="10" y="10" width="300" height="548"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K2e-M2-FzE">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="513.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Rfc-aS-f6a">
+                                                <rect key="frame" x="0.0" y="513.5" width="300" height="34.5"/>
+                                            </pageControl>
+                                        </subviews>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -507,7 +516,6 @@
         <image name="create" width="30" height="30"/>
         <image name="list" width="30" height="30"/>
         <image name="menu" width="30" height="30"/>
-        <image name="Назад" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="BFo-pH-R27"/>

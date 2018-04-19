@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FormViewController: UIViewController, UIScrollViewDelegate {
+class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var check: UISwitch!
     @IBOutlet weak var clientName: UITextField!
@@ -112,6 +112,7 @@ class FormViewController: UIViewController, UIScrollViewDelegate {
     func saveDataForDB() {
         let measurment = EMeasurement()
         measurment.address = clientAddress.text
+        measurment.apartmentNumber = clientaApartmentNumber.text
         measurment.dateTimeMeasurement = clientDataTime.date as NSDate?
         
         let user = EUser()
@@ -123,9 +124,21 @@ class FormViewController: UIViewController, UIScrollViewDelegate {
         
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.clientName.delegate = self
+        self.clientAddress.delegate = self
         sendAddress()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        super.touchesBegan(touches, with: event)
     }
     
     override func didReceiveMemoryWarning() {
