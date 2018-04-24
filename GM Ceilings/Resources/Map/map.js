@@ -16,17 +16,6 @@ function GetAddress() {
     else iMap.getAddress(null);
 }
 
-document.addEventListener("DOMContentLoaded", ready);
-function ready() {
-    setTimeout(reload, 5000);
-}
-
-function reload() {
-    if (isReload) {
-        document.location.reload(true);
-    }
-}
-
 var isReload = true
 ymaps.ready(init);
 function init() {
@@ -48,8 +37,8 @@ function initMap() {
                 preset: 'islands#greenDotIconWithCaption',
                 iconImageClipRect: [[0, 0], [64, 64]],
                 iconImageHref: 'http://calc.gm-vrn.ru/images/point.png',
-                iconImageSize: [64, 64],
-                iconImageOffset: [-32, -64],
+                iconImageSize: [32, 32],
+                iconImageOffset: [-16, -32],
                 draggable: true
             });
 
@@ -59,24 +48,16 @@ function initMap() {
         });
     
     self.map = new ymaps.Map('Map', {
-        center: [51.6720400, 39.1843000],
-        zoom: 17,
+        center: [55.753564, 37.621085],
+        zoom: 16,
         controls: []
     }, { searchControlProvider: 'yandex#search' });
     
     self.map.events.add('click', function (e) {
         self.position = e.get('coords');
-        self.getAddress(self.position);
+        self.getAddress();
         self.GoCenter();
     });
-    
-    ymaps.geolocation
-        .get({
-            provider: "yandex"
-        })
-        .then(function (result) {
-            self.GeoLoc(result.geoObjects.position);
-        });
     
     this.GoAddress = function(NewAddress) {
         ymaps.geocode(NewAddress, {results: 1})
@@ -89,16 +70,8 @@ function initMap() {
     
     this.GoAddressPosition = function(latitude, longitude) {
         self.position = [latitude, longitude];
-        self.GoCenter();
         self.getAddress();
-    };
-    
-    this.GeoLoc = function(position) {
-        if (self.position === null) {
-            self.position = position;
-            self.GoCenter();
-            self.getAddress();
-        }
+        self.GoCenter();
     };
     
     this.GoCenter = function () {

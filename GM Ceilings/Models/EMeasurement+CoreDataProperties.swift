@@ -2,7 +2,7 @@
 //  EMeasurement+CoreDataProperties.swift
 //  GM Ceilings
 //
-//  Created by GM on 17.04.18.
+//  Created by GM on 23.04.18.
 //  Copyright © 2018 GM. All rights reserved.
 //
 
@@ -19,7 +19,7 @@ extension EMeasurement {
     @NSManaged public var address: String?
     @NSManaged public var apartmentNumber: String?
     @NSManaged public var dateTimeMeasurement: NSDate?
-    @NSManaged public var user_id: Int32
+    @NSManaged public var id: Int32
     @NSManaged public var user: EUser?
 
 }

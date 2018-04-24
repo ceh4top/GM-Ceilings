@@ -10,7 +10,7 @@ import UIKit
 import WebKit
 import CoreLocation
 
-class ViewController: UIViewController, WKScriptMessageHandler, WKNavigationDelegate, UISearchBarDelegate, CLLocationManagerDelegate {
+class ViewController: UIViewController, WKScriptMessageHandler, WKNavigationDelegate, UISearchBarDelegate {
     @IBOutlet weak var navigationBar: UINavigationItem!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -21,14 +21,12 @@ class ViewController: UIViewController, WKScriptMessageHandler, WKNavigationDele
     @IBOutlet var containerView : UIView! = nil
     var webView: WKWebView?
     
-    @IBAction func goOtherPage(_ sender: Any) {
-        self.tabBarController?.selectedIndex = 2
-    }
-    
     var locationManager:CLLocationManager! = CLLocationManager()
     
     override func loadView() {
         super.loadView()
+        
+        checkInternetConnection()
         
         let contentController = WKUserContentController();
         
@@ -42,10 +40,8 @@ class ViewController: UIViewController, WKScriptMessageHandler, WKNavigationDele
             name: "callbackConsole"
         )
         
-        let coordinate = locationManager.location?.coordinate
-        
-        if coordinate != nil {
-            let stringP : String = "GoAddressP('" + (coordinate?.latitude.description)! + "', '" + (coordinate?.longitude.description)! + "')";
+        if !Geoposition.isEmpty {
+            let stringP : String = "GoAddressP('" + Geoposition.latitude!.description + "', '" + Geoposition.longitude!.description + "')";
             
             let userScript = WKUserScript(
                 source: stringP,
@@ -67,17 +63,31 @@ class ViewController: UIViewController, WKScriptMessageHandler, WKNavigationDele
         self.stackView.insertArrangedSubview(self.webView!, at: 0)
     }
     
+    func checkInternetConnection() {
+        if !InternetConnection.isConnectedToNetwork() {
+            InternetConnection.messageConnection(controller: self)
+            let queue = DispatchQueue.global(qos: .default)
+            queue.async{
+                while !InternetConnection.isConnectedToNetwork() {
+                    sleep(3)
+                }
+                DispatchQueue.main.async {
+                    if let viewWeb = self.webView {
+                        viewWeb.reload()
+                    }
+                }
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = 200
-        locationManager.requestWhenInUseAuthorization()
+        //ConstantDataManagement.setUser(user: UserData(id: 0, login: "", password: "", changePassword: false))
         
         if let search = self.navigationBar.titleView as? UISearchBar {
             search.placeholder = "Введите адрес"
+            search.enablesReturnKeyAutomatically = false
         }
         
         let url = NSURL(fileURLWithPath: Bundle.main.path(forResource: "index", ofType: "html")!)
@@ -92,7 +102,7 @@ class ViewController: UIViewController, WKScriptMessageHandler, WKNavigationDele
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if (message.name == "callbackAddress")
         {
-            print("Address: \(message.body)")
+            //print("Address: \(message.body)")
             if let search = self.navigationItem.titleView as? UISearchBar {
                 search.text! = message.body as! String
                 webView?.evaluateJavaScript("GoAddress('\(search.text!)')");

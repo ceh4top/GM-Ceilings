@@ -11,10 +11,6 @@ import CoreData
 
 class MeasurementsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UISearchBarDelegate {
     
-    @IBAction func goOtherPage(_ sender: Any) {
-        self.tabBarController?.selectedIndex = 1
-    }
-    
     var fetchedResultsController : NSFetchedResultsController<NSFetchRequestResult>?
 
     override func viewDidLoad() {
@@ -24,6 +20,7 @@ class MeasurementsTableViewController: UITableViewController, NSFetchedResultsCo
         
         if let search = self.navigationItem.titleView as? UISearchBar {
             search.placeholder = "Введите"
+            search.enablesReturnKeyAutomatically = false
         }
 
         fetchedResultsController?.delegate = self
@@ -36,8 +33,11 @@ class MeasurementsTableViewController: UITableViewController, NSFetchedResultsCo
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
-        // this is the replacement of implementing: "collectionView.addSubview(refreshControl)"
         self.refreshControl = refreshControl
+        
+        if (fetchedResultsController?.fetchedObjects?.count)! < 1 {
+            Message.Show(title: "Нет заказов", message: "У вас пока нет заказов. Для того что бы добавить заказ, запешитесь на замер.", controller: self)
+        }
     }
     
     func getRowsOfEMeasurement(filter: String?) -> NSFetchedResultsController<NSFetchRequestResult> {
@@ -114,7 +114,17 @@ class MeasurementsTableViewController: UITableViewController, NSFetchedResultsCo
         }
     }
     
-    public func refresh(sender:AnyObject)
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let deleteAction = UITableViewRowAction(style: .default, title: "Удалить", handler: { (action, indexPath) in
+            self.tableView(tableView, commit: UITableViewCellEditingStyle.delete, forRowAt: indexPath)
+        })
+        deleteAction.backgroundColor = .red
+        
+        return [deleteAction]
+    }
+    
+    public func refresh()
     {
         do {
             try fetchedResultsController?.performFetch()
@@ -127,7 +137,7 @@ class MeasurementsTableViewController: UITableViewController, NSFetchedResultsCo
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        self.navigationItem.title = "Замеры"
+        self.navigationItem.title = "Заказы"
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -160,12 +170,16 @@ class MeasurementsTableViewController: UITableViewController, NSFetchedResultsCo
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .delete:
-            if let indexPath = indexPath {
-                tableView.deleteRows(at: [indexPath as IndexPath], with: .automatic)
-            }
+            tableView.deleteRows(at: [indexPath! as IndexPath], with: .automatic)
             break
         default:
             break
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.refresh()
     }
 }

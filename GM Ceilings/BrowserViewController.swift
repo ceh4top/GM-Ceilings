@@ -1,51 +1,57 @@
 //
-//  CalculateViewController.swift
-//  GM Celings
+//  BrowserViewController.swift
+//  GM Ceilings
 //
-//  Created by GM on 13.04.18.
+//  Created by GM on 21.04.18.
 //  Copyright © 2018 GM. All rights reserved.
 //
 
 import UIKit
 import WebKit
-import CoreLocation
 
-class CalculateViewController: UIViewController, WKScriptMessageHandler, WKNavigationDelegate {
+class BrowserViewController: UIViewController, WKScriptMessageHandler, WKNavigationDelegate {
     
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var newView: UIView!
+    var webView: WKWebView?
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var webView: WKWebView?
+    public var URL = NSURL(string: "гмпотолки.рф") {
+        didSet {
+            openHref()
+        }
+    }
     
-    var latitude = "NULL"
-    var longitude = "NULL"
+    public var NavTitle = "Браузер" {
+        didSet {
+            setNavTitle()
+        }
+    }
     
-    var url = NSURL(string: "http://calc.gm-vrn.ru/client_calculate.php?device=ios")
+    func setNavTitle() {
+        self.navigationItem.title = NavTitle
+    }
     
+    func openHref() {
+        if let url = URL as? URL {
+            let request = URLRequest(url: url)
+            if self.webView != nil {
+                self.webView!.load(request)
+                self.activityIndicator.startAnimating()
+            }
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        checkInternetConnection()
-        
-        if !Geoposition.isEmpty {
-            self.latitude = Geoposition.latitude!.description
-            self.longitude = Geoposition.longitude!.description
-        }
-        
-        url = NSURL(string: "http://calc.gm-vrn.ru/client_calculate.php?device=ios&latitude=\(latitude)&longitude=\(longitude)")
-        
-        let request = NSURLRequest(url:url! as URL)
-        self.webView!.load(request as URLRequest)
-        
         self.webView?.navigationDelegate = self
         
-        self.activityIndicator.startAnimating()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        checkInternetConnection()
+        
+        openHref()
+        setNavTitle()
     }
     
     override func loadView() {
@@ -64,6 +70,11 @@ class CalculateViewController: UIViewController, WKScriptMessageHandler, WKNavig
         self.stackView.removeArrangedSubview(self.newView)
         self.stackView.insertArrangedSubview(self.webView!, at: 0)
     }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
     func checkInternetConnection() {
         if !InternetConnection.isConnectedToNetwork() {
@@ -75,8 +86,8 @@ class CalculateViewController: UIViewController, WKScriptMessageHandler, WKNavig
                 }
                 DispatchQueue.main.async {
                     if let viewWeb = self.webView {
-                        let request = NSURLRequest(url:self.url! as URL)
-                        viewWeb.load(request as URLRequest)
+                        let request = URLRequest(url: self.URL as! URL)
+                        viewWeb.load(request)
                     }
                 }
             }

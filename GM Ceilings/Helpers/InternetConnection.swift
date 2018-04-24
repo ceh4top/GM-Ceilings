@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import SystemConfiguration
 
 public class InternetConnection {
@@ -34,6 +35,11 @@ public class InternetConnection {
         let ret = (isReachable && !needsConnection)
         
         return ret
-        
+    }
+    
+    public static func messageConnection(controller : UIViewController) {
+        if !InternetConnection.isConnectedToNetwork() {
+            Message.Show(title: "Нет подключения к интернету", message: "Для успешной работы приложения, необходимо быть подключенным к сети интернет.", controller: controller)
+        }
     }
 }

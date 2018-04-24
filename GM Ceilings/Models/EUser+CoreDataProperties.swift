@@ -2,7 +2,7 @@
 //  EUser+CoreDataProperties.swift
 //  GM Ceilings
 //
-//  Created by GM on 17.04.18.
+//  Created by GM on 23.04.18.
 //  Copyright © 2018 GM. All rights reserved.
 //
 
@@ -20,6 +20,7 @@ extension EUser {
     @NSManaged public var password: String?
     @NSManaged public var phone: String?
     @NSManaged public var work: Bool
+    @NSManaged public var id: Int32
     @NSManaged public var measurement: NSSet?
 
 }
