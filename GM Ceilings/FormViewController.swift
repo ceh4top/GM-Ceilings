@@ -208,6 +208,7 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
                                 else {
                                     flagBack = true
                                 }
+                                self.saveDataForDB()
                             }
                         }
                         
@@ -239,16 +240,14 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
         self.clientAddress?.text = clientAddressMap
     }
     
+    var measurmentId = "0"
     func saveDataForDB() {
-        let measurment = EMeasurement()
-        measurment.address = clientAddress.text
-        measurment.apartmentNumber = clientaApartmentNumber.text
-        measurment.dateTimeMeasurement = datePickerView.date as NSDate?
-        
-        let user = EUser()
-        user.name = clientName.text
-        user.phone = clientPhone.text
-        user.addToMeasurement(measurment)
+        let measurment = Measurement()
+        measurment.address = self.clientAddress.text! + " кв. " + self.clientaApartmentNumber.text!
+        measurment.projectId = measurmentId
+        measurment.status = "Ждет замера"
+        measurment.dateTime = self.clientDate.text! + " " + self.clientTime.text!
+        measurment.projectSum = ""
         
         CoreDataManager.instance.saveContext()
         

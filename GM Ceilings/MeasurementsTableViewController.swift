@@ -16,7 +16,7 @@ class MeasurementsTableViewController: UITableViewController, NSFetchedResultsCo
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchedResultsController = getRowsOfEMeasurement(filter: nil)
+        fetchedResultsController = getRowsOfMeasurement(filter: nil)
         
         if let search = self.navigationItem.titleView as? UISearchBar {
             search.placeholder = "Введите"
@@ -40,15 +40,15 @@ class MeasurementsTableViewController: UITableViewController, NSFetchedResultsCo
         }
     }
     
-    func getRowsOfEMeasurement(filter: String?) -> NSFetchedResultsController<NSFetchRequestResult> {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "EMeasurement")
+    func getRowsOfMeasurement(filter: String?) -> NSFetchedResultsController<NSFetchRequestResult> {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Measurement")
         
-        let sortDescriptor = NSSortDescriptor(key: "dateTimeMeasurement", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "id", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         if var filter = filter as String! {
             filter = Helper.removeSpecialCharsFromString(text: filter)
-            let predicate = NSPredicate(format: "address MATCHES[cd] '.*(\(filter)).*' or user.name MATCHES[cd] '.*(\(filter)).*' or user.phone MATCHES[cd] '.*(\(filter)).*'")
+            let predicate = NSPredicate(format: "address MATCHES[cd] '.*(\(filter)).*' or id MATCHES[cd] '.*(\(filter)).*' or status MATCHES[cd] '.*(\(filter)).*'")
             fetchRequest.predicate = predicate
         }
         
@@ -70,38 +70,13 @@ class MeasurementsTableViewController: UITableViewController, NSFetchedResultsCo
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> MeasurmentsTableViewCell {
-        let measurement = fetchedResultsController?.object(at: indexPath as IndexPath) as! EMeasurement
+        let measurement = fetchedResultsController?.object(at: indexPath as IndexPath) as! Measurement
         let cell = tableView.dequeueReusableCell(withIdentifier: "measurementsCell") as! MeasurmentsTableViewCell
         
-        var address : String? = ""
-        var user : String? = ""
-        var date : String? = ""
-        
-        if (measurement.address != nil) {
-            address = measurement.address
-        }
-        
-        if (measurement.apartmentNumber != nil) {
-            address = address! + " кв. " + (measurement.apartmentNumber)!
-        }
-        
-        if (measurement.user?.name != nil) {
-            user = measurement.user?.name
-        }
-        
-        if (measurement.user?.phone != nil) {
-            user = user! + " тел: " + (measurement.user?.phone)!
-        }
-        
-        if (measurement.dateTimeMeasurement != nil) {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
-            date = String(describing: dateFormatter.string(from: measurement.dateTimeMeasurement as! Date) )
-        }
-        
-        cell.address?.text = address
-        cell.user?.text = user
-        cell.date?.text = date
+        cell.address.text = ((measurement.address != nil) ? measurement.address : "")
+        cell.projectId.text = ((measurement.projectId != nil) ?  measurement.projectId : "")
+        cell.status.text = ((measurement.status != nil) ? measurement.status : "")
+        cell.projectSum.text = ((measurement.projectSum != nil) ? measurement.projectSum : "")
         
         return cell
     }
@@ -141,7 +116,7 @@ class MeasurementsTableViewController: UITableViewController, NSFetchedResultsCo
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.fetchedResultsController = getRowsOfEMeasurement(filter: searchText)
+        self.fetchedResultsController = getRowsOfMeasurement(filter: searchText)
         
         do {
             try fetchedResultsController?.performFetch()
@@ -154,7 +129,7 @@ class MeasurementsTableViewController: UITableViewController, NSFetchedResultsCo
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let search = self.navigationItem.titleView as? UISearchBar {
-            self.fetchedResultsController = getRowsOfEMeasurement(filter: search.text)
+            self.fetchedResultsController = getRowsOfMeasurement(filter: search.text)
         }
         
         do {

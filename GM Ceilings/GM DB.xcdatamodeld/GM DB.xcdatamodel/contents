@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="15G20015" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="EMeasurement" representedClassName="EMeasurement" syncable="YES">
+    <entity name="Measurement" representedClassName="Measurement" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="apartmentNumber" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="dateTimeMeasurement" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="EUser" inverseName="measurement" inverseEntity="EUser" syncable="YES"/>
-    </entity>
-    <entity name="EUser" representedClassName="EUser" syncable="YES">
-        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="work" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="measurement" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EMeasurement" inverseName="user" inverseEntity="EMeasurement" syncable="YES"/>
+        <attribute name="dateTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectSum" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="EMeasurement" positionX="-2729" positionY="254" width="128" height="120"/>
-        <element name="EUser" positionX="-2466" positionY="270" width="126" height="135"/>
+        <element name="Measurement" positionX="-2729" positionY="254" width="128" height="120"/>
     </elements>
 </model>

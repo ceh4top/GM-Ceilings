@@ -21,10 +21,6 @@
 		879F0C272080C9D7003BF3F2 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 879F0C252080C9D7003BF3F2 /* index.html */; };
 		879F0C282080C9D7003BF3F2 /* map.js in Resources */ = {isa = PBXBuildFile; fileRef = 879F0C262080C9D7003BF3F2 /* map.js */; };
 		879F0C3E2080EC05003BF3F2 /* MeasurementsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F0C3D2080EC05003BF3F2 /* MeasurementsTableViewController.swift */; };
-		87A207342085C40C00B5FC29 /* EMeasurement+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A207302085C40C00B5FC29 /* EMeasurement+CoreDataClass.swift */; };
-		87A207352085C40C00B5FC29 /* EMeasurement+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A207312085C40C00B5FC29 /* EMeasurement+CoreDataProperties.swift */; };
-		87A207362085C40C00B5FC29 /* EUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A207322085C40C00B5FC29 /* EUser+CoreDataClass.swift */; };
-		87A207372085C40C00B5FC29 /* EUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A207332085C40C00B5FC29 /* EUser+CoreDataProperties.swift */; };
 		87A8199F208F01E40009FB2F /* ConstantDataManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A8199E208F01E40009FB2F /* ConstantDataManagement.swift */; };
 		87A819A1208F03A70009FB2F /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A819A0208F03A70009FB2F /* UserData.swift */; };
 		87A819A3208F6F360009FB2F /* ProfileProfileUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A819A2208F6F360009FB2F /* ProfileProfileUIViewController.swift */; };
@@ -33,6 +29,8 @@
 		87B4338920905C8D0073F922 /* EntryProfileUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4338820905C8D0073F922 /* EntryProfileUIViewController.swift */; };
 		87B4338B20905D060073F922 /* PasswordProfileUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4338A20905D060073F922 /* PasswordProfileUIViewController.swift */; };
 		87B4338D20905DBE0073F922 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4338C20905DBE0073F922 /* ProfileViewController.swift */; };
+		87B4339020908B100073F922 /* Measurement+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4338E20908B100073F922 /* Measurement+CoreDataClass.swift */; };
+		87B4339120908B100073F922 /* Measurement+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4338F20908B100073F922 /* Measurement+CoreDataProperties.swift */; };
 		87C480832084953A00E3FFD3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C480802084953A00E3FFD3 /* CoreDataManager.swift */; };
 		87C480B520849FBD00E3FFD3 /* GM DB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 87C480B320849FBD00E3FFD3 /* GM DB.xcdatamodeld */; };
 		87CC0C762089CAB8001CEA66 /* Geoposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC0C752089CAB8001CEA66 /* Geoposition.swift */; };
@@ -55,10 +53,6 @@
 		879F0C252080C9D7003BF3F2 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = "GM Ceilings/Resources/Map/index.html"; sourceTree = "<group>"; };
 		879F0C262080C9D7003BF3F2 /* map.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = map.js; path = "GM Ceilings/Resources/Map/map.js"; sourceTree = "<group>"; };
 		879F0C3D2080EC05003BF3F2 /* MeasurementsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementsTableViewController.swift; sourceTree = "<group>"; };
-		87A207302085C40C00B5FC29 /* EMeasurement+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EMeasurement+CoreDataClass.swift"; path = "Models/EMeasurement+CoreDataClass.swift"; sourceTree = "<group>"; };
-		87A207312085C40C00B5FC29 /* EMeasurement+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EMeasurement+CoreDataProperties.swift"; path = "Models/EMeasurement+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		87A207322085C40C00B5FC29 /* EUser+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EUser+CoreDataClass.swift"; path = "Models/EUser+CoreDataClass.swift"; sourceTree = "<group>"; };
-		87A207332085C40C00B5FC29 /* EUser+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EUser+CoreDataProperties.swift"; path = "Models/EUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		87A8199E208F01E40009FB2F /* ConstantDataManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConstantDataManagement.swift; path = Helpers/ConstantDataManagement.swift; sourceTree = "<group>"; };
 		87A819A0208F03A70009FB2F /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserData.swift; path = Helpers/UserData.swift; sourceTree = "<group>"; };
 		87A819A2208F6F360009FB2F /* ProfileProfileUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileProfileUIViewController.swift; path = Profile/ProfileProfileUIViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +61,8 @@
 		87B4338820905C8D0073F922 /* EntryProfileUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EntryProfileUIViewController.swift; path = Profile/EntryProfileUIViewController.swift; sourceTree = "<group>"; };
 		87B4338A20905D060073F922 /* PasswordProfileUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PasswordProfileUIViewController.swift; path = Profile/PasswordProfileUIViewController.swift; sourceTree = "<group>"; };
 		87B4338C20905DBE0073F922 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = Profile/ProfileViewController.swift; sourceTree = "<group>"; };
+		87B4338E20908B100073F922 /* Measurement+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Measurement+CoreDataClass.swift"; path = "Models/Measurement+CoreDataClass.swift"; sourceTree = "<group>"; };
+		87B4338F20908B100073F922 /* Measurement+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Measurement+CoreDataProperties.swift"; path = "Models/Measurement+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		87C480802084953A00E3FFD3 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = CoreData/CoreDataManager.swift; sourceTree = "<group>"; };
 		87C480B420849FBD00E3FFD3 /* GM DB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "GM DB.xcdatamodel"; sourceTree = "<group>"; };
 		87CC0C752089CAB8001CEA66 /* Geoposition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geoposition.swift; path = Helpers/Geoposition.swift; sourceTree = "<group>"; };
@@ -175,10 +171,8 @@
 		87C480852084960100E3FFD3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				87A207302085C40C00B5FC29 /* EMeasurement+CoreDataClass.swift */,
-				87A207312085C40C00B5FC29 /* EMeasurement+CoreDataProperties.swift */,
-				87A207322085C40C00B5FC29 /* EUser+CoreDataClass.swift */,
-				87A207332085C40C00B5FC29 /* EUser+CoreDataProperties.swift */,
+				87B4338E20908B100073F922 /* Measurement+CoreDataClass.swift */,
+				87B4338F20908B100073F922 /* Measurement+CoreDataProperties.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -267,29 +261,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87A207372085C40C00B5FC29 /* EUser+CoreDataProperties.swift in Sources */,
 				879F0C082080C85C003BF3F2 /* ViewController.swift in Sources */,
 				87B4338B20905D060073F922 /* PasswordProfileUIViewController.swift in Sources */,
 				879F0C062080C85C003BF3F2 /* AppDelegate.swift in Sources */,
 				87B4338920905C8D0073F922 /* EntryProfileUIViewController.swift in Sources */,
 				87C480B520849FBD00E3FFD3 /* GM DB.xcdatamodeld in Sources */,
 				879F0C1F2080C8FE003BF3F2 /* MainTabBarController.swift in Sources */,
-				87A207352085C40C00B5FC29 /* EMeasurement+CoreDataProperties.swift in Sources */,
 				879F0C1D2080C8FE003BF3F2 /* FormViewController.swift in Sources */,
 				87208B2720887D0300754113 /* Helper.swift in Sources */,
 				879F0C1C2080C8FE003BF3F2 /* CalculateViewController.swift in Sources */,
 				879F0C1E2080C8FE003BF3F2 /* InternetConnection.swift in Sources */,
-				87A207342085C40C00B5FC29 /* EMeasurement+CoreDataClass.swift in Sources */,
 				87AF728C208E0D5000E5ED75 /* MeasurmentsTableViewCell.swift in Sources */,
 				87B4338D20905DBE0073F922 /* ProfileViewController.swift in Sources */,
 				879F0C3E2080EC05003BF3F2 /* MeasurementsTableViewController.swift in Sources */,
+				87B4339020908B100073F922 /* Measurement+CoreDataClass.swift in Sources */,
 				87CC0C762089CAB8001CEA66 /* Geoposition.swift in Sources */,
 				87C480832084953A00E3FFD3 /* CoreDataManager.swift in Sources */,
 				87A819A1208F03A70009FB2F /* UserData.swift in Sources */,
 				87A8199F208F01E40009FB2F /* ConstantDataManagement.swift in Sources */,
 				87AFEE30208B232800F0801B /* BrowserViewController.swift in Sources */,
 				87A819A3208F6F360009FB2F /* ProfileProfileUIViewController.swift in Sources */,
-				87A207362085C40C00B5FC29 /* EUser+CoreDataClass.swift in Sources */,
+				87B4339120908B100073F922 /* Measurement+CoreDataProperties.swift in Sources */,
 				879F0C202080C8FE003BF3F2 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

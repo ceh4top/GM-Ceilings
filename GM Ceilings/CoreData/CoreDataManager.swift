@@ -78,5 +78,18 @@ public class CoreDataManager {
             }
         }
     }
-
+    
+    func removeAll() {
+        let context = self.managedObjectContext
+        
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "CurrentCourse")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+        } catch {
+            print ("There was an error")
+        }
+    }
 }

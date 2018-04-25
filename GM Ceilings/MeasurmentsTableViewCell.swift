@@ -9,7 +9,8 @@
 import UIKit
 
 class MeasurmentsTableViewCell: UITableViewCell {
+    @IBOutlet weak var projectId: UILabel!
     @IBOutlet weak var address: UILabel!
-    @IBOutlet weak var user: UILabel!
-    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var status: UILabel!
+    @IBOutlet weak var projectSum: UILabel!
 }
