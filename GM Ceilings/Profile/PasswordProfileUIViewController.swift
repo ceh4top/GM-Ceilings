@@ -55,6 +55,7 @@ extension ProfileViewController {
                 var message = "Сервер не отвечает, попробуйте позже."
                 
                 if status {
+                    Log.msg(json as Any)
                     if let statusAnswer = json?["status"] as? String {
                         if statusAnswer == "success" {
                             self.user.password = parameters["password"]!
@@ -64,16 +65,14 @@ extension ProfileViewController {
                             self.Password.isHidden = true
                             self.Profile.isHidden = false
                             self.navigationItem.title = "Профиль"
-                            return
                         }
-                        else {
-                            if let t = json?["title"] as? String {
-                                title = t
-                            }
-                            
-                            if let m = json?["message"] as? String {
-                                message = m
-                            }
+                        
+                        if let t = json?["title"] as? String {
+                            title = t
+                        }
+                        
+                        if let m = json?["message"] as? String {
+                            message = m
                         }
                     }
                 }

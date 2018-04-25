@@ -31,6 +31,9 @@
 		87B4338D20905DBE0073F922 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4338C20905DBE0073F922 /* ProfileViewController.swift */; };
 		87B4339020908B100073F922 /* Measurement+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4338E20908B100073F922 /* Measurement+CoreDataClass.swift */; };
 		87B4339120908B100073F922 /* Measurement+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4338F20908B100073F922 /* Measurement+CoreDataProperties.swift */; };
+		87B433942090A3920073F922 /* StyleUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B433932090A3920073F922 /* StyleUIButton.swift */; };
+		87B433962090A9150073F922 /* StyleUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B433952090A9150073F922 /* StyleUITextField.swift */; };
+		87B433982090ABF80073F922 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B433972090ABF80073F922 /* Log.swift */; };
 		87C480832084953A00E3FFD3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C480802084953A00E3FFD3 /* CoreDataManager.swift */; };
 		87C480B520849FBD00E3FFD3 /* GM DB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 87C480B320849FBD00E3FFD3 /* GM DB.xcdatamodeld */; };
 		87CC0C762089CAB8001CEA66 /* Geoposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC0C752089CAB8001CEA66 /* Geoposition.swift */; };
@@ -63,6 +66,9 @@
 		87B4338C20905DBE0073F922 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = Profile/ProfileViewController.swift; sourceTree = "<group>"; };
 		87B4338E20908B100073F922 /* Measurement+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Measurement+CoreDataClass.swift"; path = "Models/Measurement+CoreDataClass.swift"; sourceTree = "<group>"; };
 		87B4338F20908B100073F922 /* Measurement+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Measurement+CoreDataProperties.swift"; path = "Models/Measurement+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		87B433932090A3920073F922 /* StyleUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StyleUIButton.swift; path = Styles/StyleUIButton.swift; sourceTree = "<group>"; };
+		87B433952090A9150073F922 /* StyleUITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StyleUITextField.swift; path = Styles/StyleUITextField.swift; sourceTree = "<group>"; };
+		87B433972090ABF80073F922 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Log.swift; path = Helpers/Log.swift; sourceTree = "<group>"; };
 		87C480802084953A00E3FFD3 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = CoreData/CoreDataManager.swift; sourceTree = "<group>"; };
 		87C480B420849FBD00E3FFD3 /* GM DB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "GM DB.xcdatamodel"; sourceTree = "<group>"; };
 		87CC0C752089CAB8001CEA66 /* Geoposition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geoposition.swift; path = Helpers/Geoposition.swift; sourceTree = "<group>"; };
@@ -88,6 +94,7 @@
 				87CC0C752089CAB8001CEA66 /* Geoposition.swift */,
 				87A8199E208F01E40009FB2F /* ConstantDataManagement.swift */,
 				87A819A0208F03A70009FB2F /* UserData.swift */,
+				87B433972090ABF80073F922 /* Log.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -112,6 +119,7 @@
 		879F0C042080C85C003BF3F2 /* GM Ceilings */ = {
 			isa = PBXGroup;
 			children = (
+				87B433922090A35C0073F922 /* Styles */,
 				87B4338720905C3A0073F922 /* Profile */,
 				87208B2520887CDB00754113 /* Helpers */,
 				87EAF1092084C4FF0052C818 /* Measurments */,
@@ -157,6 +165,15 @@
 				87B4338C20905DBE0073F922 /* ProfileViewController.swift */,
 			);
 			name = Profile;
+			sourceTree = "<group>";
+		};
+		87B433922090A35C0073F922 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				87B433932090A3920073F922 /* StyleUIButton.swift */,
+				87B433952090A9150073F922 /* StyleUITextField.swift */,
+			);
+			name = Styles;
 			sourceTree = "<group>";
 		};
 		87C4807B20848F8100E3FFD3 /* CoreData */ = {
@@ -262,10 +279,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				879F0C082080C85C003BF3F2 /* ViewController.swift in Sources */,
+				87B433962090A9150073F922 /* StyleUITextField.swift in Sources */,
 				87B4338B20905D060073F922 /* PasswordProfileUIViewController.swift in Sources */,
 				879F0C062080C85C003BF3F2 /* AppDelegate.swift in Sources */,
+				87B433942090A3920073F922 /* StyleUIButton.swift in Sources */,
 				87B4338920905C8D0073F922 /* EntryProfileUIViewController.swift in Sources */,
 				87C480B520849FBD00E3FFD3 /* GM DB.xcdatamodeld in Sources */,
+				87B433982090ABF80073F922 /* Log.swift in Sources */,
 				879F0C1F2080C8FE003BF3F2 /* MainTabBarController.swift in Sources */,
 				879F0C1D2080C8FE003BF3F2 /* FormViewController.swift in Sources */,
 				87208B2720887D0300754113 /* Helper.swift in Sources */,

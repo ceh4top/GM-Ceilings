@@ -82,7 +82,7 @@ public class CoreDataManager {
     func removeAll() {
         let context = self.managedObjectContext
         
-        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "CurrentCourse")
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Measurement")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
         
         do {

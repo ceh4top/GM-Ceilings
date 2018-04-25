@@ -120,6 +120,7 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
                     var title = "Сервер не отвечает"
                     var message = "Сервер не отвечает, попробуйте позже."
                     if status {
+                        Log.msg(json as Any)
                         if let answerStatus = json?["status"] as? String {
                             if answerStatus == "success" {
                                 if let array = json?["times"] as? [String] {
@@ -179,6 +180,7 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
                     var flagBack : Bool = false
                     
                     if status {
+                        Log.msg(json as Any)
                         if let statusAnswer = json?["status"] as? String {
                             if statusAnswer == "success" {
                                 if self.user.login == "" {
@@ -190,6 +192,9 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
                                         if let LP = answer["username"] as? String {
                                             self.user.login = LP
                                             self.user.password = LP
+                                        }
+                                        if let projectId = answer["project_id"] as? String {
+                                            self.measurmentId = projectId
                                         }
                                         self.user.changePassword = false
                                     }

@@ -83,7 +83,7 @@ class ViewController: UIViewController, WKScriptMessageHandler, WKNavigationDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //ConstantDataManagement.setUser(user: UserData(id: 0, login: "", password: "", changePassword: false))
+        self.nextPage.layer.cornerRadius = 15
         
         if let search = self.navigationBar.titleView as? UISearchBar {
             search.placeholder = "Введите адрес"

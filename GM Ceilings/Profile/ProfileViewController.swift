@@ -19,7 +19,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordEntryTF: UITextField!
     
     @IBAction func EntryAction(_ sender: UIButton) {
-        
+        let username = self.loginEntryTF.text!
+        let password = self.passwordEntryTF.text!
+        self.assembleEntryForSend(username: username, password: password)
     }
     
     // Password

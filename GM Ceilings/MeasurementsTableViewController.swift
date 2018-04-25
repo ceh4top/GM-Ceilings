@@ -43,12 +43,12 @@ class MeasurementsTableViewController: UITableViewController, NSFetchedResultsCo
     func getRowsOfMeasurement(filter: String?) -> NSFetchedResultsController<NSFetchRequestResult> {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Measurement")
         
-        let sortDescriptor = NSSortDescriptor(key: "id", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "projectId", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         if var filter = filter as String! {
             filter = Helper.removeSpecialCharsFromString(text: filter)
-            let predicate = NSPredicate(format: "address MATCHES[cd] '.*(\(filter)).*' or id MATCHES[cd] '.*(\(filter)).*' or status MATCHES[cd] '.*(\(filter)).*'")
+            let predicate = NSPredicate(format: "address MATCHES[cd] '.*(\(filter)).*' or projectId MATCHES[cd] '.*(\(filter)).*' or status MATCHES[cd] '.*(\(filter)).*'")
             fetchRequest.predicate = predicate
         }
         
@@ -79,24 +79,6 @@ class MeasurementsTableViewController: UITableViewController, NSFetchedResultsCo
         cell.projectSum.text = ((measurement.projectSum != nil) ? measurement.projectSum : "")
         
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let managedObject = fetchedResultsController?.object(at: indexPath as IndexPath) as! NSManagedObject
-            CoreDataManager.instance.managedObjectContext.delete(managedObject)
-            CoreDataManager.instance.saveContext()
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
-        let deleteAction = UITableViewRowAction(style: .default, title: "Удалить", handler: { (action, indexPath) in
-            self.tableView(tableView, commit: UITableViewCellEditingStyle.delete, forRowAt: indexPath)
-        })
-        deleteAction.backgroundColor = .red
-        
-        return [deleteAction]
     }
     
     public func refresh()
@@ -140,16 +122,6 @@ class MeasurementsTableViewController: UITableViewController, NSFetchedResultsCo
         
         self.tableView.reloadData()
         searchBar.resignFirstResponder()
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        switch type {
-        case .delete:
-            tableView.deleteRows(at: [indexPath! as IndexPath], with: .automatic)
-            break
-        default:
-            break
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
