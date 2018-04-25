@@ -9,8 +9,8 @@
 import Foundation
 
 class ConstantDataManagement {
-    static var auth : [String:Any] = [:]
-    static let userDefaults = UserDefaults.standard
+    private static var auth : [String:Any] = [:]
+    private static let userDefaults = UserDefaults.standard
     
     public static func loadData() {
         if let auth = userDefaults.dictionary(forKey: "auth") {

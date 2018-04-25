@@ -27,9 +27,12 @@
 		87A207372085C40C00B5FC29 /* EUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A207332085C40C00B5FC29 /* EUser+CoreDataProperties.swift */; };
 		87A8199F208F01E40009FB2F /* ConstantDataManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A8199E208F01E40009FB2F /* ConstantDataManagement.swift */; };
 		87A819A1208F03A70009FB2F /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A819A0208F03A70009FB2F /* UserData.swift */; };
-		87A819A3208F6F360009FB2F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A819A2208F6F360009FB2F /* ProfileViewController.swift */; };
+		87A819A3208F6F360009FB2F /* ProfileProfileUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A819A2208F6F360009FB2F /* ProfileProfileUIViewController.swift */; };
 		87AF728C208E0D5000E5ED75 /* MeasurmentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AF728B208E0D5000E5ED75 /* MeasurmentsTableViewCell.swift */; };
 		87AFEE30208B232800F0801B /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFEE2F208B232800F0801B /* BrowserViewController.swift */; };
+		87B4338920905C8D0073F922 /* EntryProfileUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4338820905C8D0073F922 /* EntryProfileUIViewController.swift */; };
+		87B4338B20905D060073F922 /* PasswordProfileUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4338A20905D060073F922 /* PasswordProfileUIViewController.swift */; };
+		87B4338D20905DBE0073F922 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4338C20905DBE0073F922 /* ProfileViewController.swift */; };
 		87C480832084953A00E3FFD3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C480802084953A00E3FFD3 /* CoreDataManager.swift */; };
 		87C480B520849FBD00E3FFD3 /* GM DB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 87C480B320849FBD00E3FFD3 /* GM DB.xcdatamodeld */; };
 		87CC0C762089CAB8001CEA66 /* Geoposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC0C752089CAB8001CEA66 /* Geoposition.swift */; };
@@ -58,9 +61,12 @@
 		87A207332085C40C00B5FC29 /* EUser+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EUser+CoreDataProperties.swift"; path = "Models/EUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		87A8199E208F01E40009FB2F /* ConstantDataManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConstantDataManagement.swift; path = Helpers/ConstantDataManagement.swift; sourceTree = "<group>"; };
 		87A819A0208F03A70009FB2F /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserData.swift; path = Helpers/UserData.swift; sourceTree = "<group>"; };
-		87A819A2208F6F360009FB2F /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		87A819A2208F6F360009FB2F /* ProfileProfileUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileProfileUIViewController.swift; path = Profile/ProfileProfileUIViewController.swift; sourceTree = "<group>"; };
 		87AF728B208E0D5000E5ED75 /* MeasurmentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurmentsTableViewCell.swift; sourceTree = "<group>"; };
 		87AFEE2F208B232800F0801B /* BrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
+		87B4338820905C8D0073F922 /* EntryProfileUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EntryProfileUIViewController.swift; path = Profile/EntryProfileUIViewController.swift; sourceTree = "<group>"; };
+		87B4338A20905D060073F922 /* PasswordProfileUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PasswordProfileUIViewController.swift; path = Profile/PasswordProfileUIViewController.swift; sourceTree = "<group>"; };
+		87B4338C20905DBE0073F922 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = Profile/ProfileViewController.swift; sourceTree = "<group>"; };
 		87C480802084953A00E3FFD3 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = CoreData/CoreDataManager.swift; sourceTree = "<group>"; };
 		87C480B420849FBD00E3FFD3 /* GM DB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "GM DB.xcdatamodel"; sourceTree = "<group>"; };
 		87CC0C752089CAB8001CEA66 /* Geoposition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geoposition.swift; path = Helpers/Geoposition.swift; sourceTree = "<group>"; };
@@ -110,6 +116,7 @@
 		879F0C042080C85C003BF3F2 /* GM Ceilings */ = {
 			isa = PBXGroup;
 			children = (
+				87B4338720905C3A0073F922 /* Profile */,
 				87208B2520887CDB00754113 /* Helpers */,
 				87EAF1092084C4FF0052C818 /* Measurments */,
 				87C480852084960100E3FFD3 /* Models */,
@@ -120,7 +127,6 @@
 				879F0C052080C85C003BF3F2 /* AppDelegate.swift */,
 				879F0C072080C85C003BF3F2 /* ViewController.swift */,
 				879F0C092080C85C003BF3F2 /* Main.storyboard */,
-				87A819A2208F6F360009FB2F /* ProfileViewController.swift */,
 				87AFEE2F208B232800F0801B /* BrowserViewController.swift */,
 				879F0C0C2080C85C003BF3F2 /* Assets.xcassets */,
 				879F0C0E2080C85C003BF3F2 /* LaunchScreen.storyboard */,
@@ -144,6 +150,17 @@
 				879F0C262080C9D7003BF3F2 /* map.js */,
 			);
 			name = Map;
+			sourceTree = "<group>";
+		};
+		87B4338720905C3A0073F922 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				87A819A2208F6F360009FB2F /* ProfileProfileUIViewController.swift */,
+				87B4338820905C8D0073F922 /* EntryProfileUIViewController.swift */,
+				87B4338A20905D060073F922 /* PasswordProfileUIViewController.swift */,
+				87B4338C20905DBE0073F922 /* ProfileViewController.swift */,
+			);
+			name = Profile;
 			sourceTree = "<group>";
 		};
 		87C4807B20848F8100E3FFD3 /* CoreData */ = {
@@ -252,7 +269,9 @@
 			files = (
 				87A207372085C40C00B5FC29 /* EUser+CoreDataProperties.swift in Sources */,
 				879F0C082080C85C003BF3F2 /* ViewController.swift in Sources */,
+				87B4338B20905D060073F922 /* PasswordProfileUIViewController.swift in Sources */,
 				879F0C062080C85C003BF3F2 /* AppDelegate.swift in Sources */,
+				87B4338920905C8D0073F922 /* EntryProfileUIViewController.swift in Sources */,
 				87C480B520849FBD00E3FFD3 /* GM DB.xcdatamodeld in Sources */,
 				879F0C1F2080C8FE003BF3F2 /* MainTabBarController.swift in Sources */,
 				87A207352085C40C00B5FC29 /* EMeasurement+CoreDataProperties.swift in Sources */,
@@ -262,13 +281,14 @@
 				879F0C1E2080C8FE003BF3F2 /* InternetConnection.swift in Sources */,
 				87A207342085C40C00B5FC29 /* EMeasurement+CoreDataClass.swift in Sources */,
 				87AF728C208E0D5000E5ED75 /* MeasurmentsTableViewCell.swift in Sources */,
+				87B4338D20905DBE0073F922 /* ProfileViewController.swift in Sources */,
 				879F0C3E2080EC05003BF3F2 /* MeasurementsTableViewController.swift in Sources */,
 				87CC0C762089CAB8001CEA66 /* Geoposition.swift in Sources */,
 				87C480832084953A00E3FFD3 /* CoreDataManager.swift in Sources */,
 				87A819A1208F03A70009FB2F /* UserData.swift in Sources */,
 				87A8199F208F01E40009FB2F /* ConstantDataManagement.swift in Sources */,
 				87AFEE30208B232800F0801B /* BrowserViewController.swift in Sources */,
-				87A819A3208F6F360009FB2F /* ProfileViewController.swift in Sources */,
+				87A819A3208F6F360009FB2F /* ProfileProfileUIViewController.swift in Sources */,
 				87A207362085C40C00B5FC29 /* EUser+CoreDataClass.swift in Sources */,
 				879F0C202080C8FE003BF3F2 /* Message.swift in Sources */,
 			);
