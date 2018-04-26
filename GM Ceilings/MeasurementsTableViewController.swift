@@ -24,11 +24,7 @@ class MeasurementsTableViewController: UITableViewController, NSFetchedResultsCo
         }
 
         fetchedResultsController?.delegate = self
-        do {
-            try fetchedResultsController?.performFetch()
-        } catch {
-            print(error)
-        }
+        performFetch()
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
@@ -41,6 +37,7 @@ class MeasurementsTableViewController: UITableViewController, NSFetchedResultsCo
     }
     
     func getRowsOfMeasurement(filter: String?) -> NSFetchedResultsController<NSFetchRequestResult> {
+        
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Measurement")
         
         let sortDescriptor = NSSortDescriptor(key: "projectId", ascending: false)
@@ -74,20 +71,81 @@ class MeasurementsTableViewController: UITableViewController, NSFetchedResultsCo
         let cell = tableView.dequeueReusableCell(withIdentifier: "measurementsCell") as! MeasurmentsTableViewCell
         
         cell.address.text = ((measurement.address != nil) ? measurement.address : "")
-        cell.projectId.text = ((measurement.projectId != nil) ?  measurement.projectId : "")
+        cell.projectId.text = String(measurement.projectId)
         cell.status.text = ((measurement.status != nil) ? measurement.status : "")
         cell.projectSum.text = ((measurement.projectSum != nil) ? measurement.projectSum : "")
         
         return cell
     }
     
-    public func refresh()
-    {
+    public func performFetch() {
+        var user : [String : String] = [:]
+        let userTemp = UserDefaults.getUser()
+        user.updateValue(userTemp.login, forKey: "username")
+        user.updateValue(userTemp.password, forKey: "password")
+        
+        Helper.sendServer(parameters: user as [String : AnyObject], href: PList.iOSauthorisation) {
+            (status, json) in
+            Log.msg(json)
+            if status {
+                if let answer = json as? [String:AnyObject] {
+                    if let data = answer["data"] as? [String:AnyObject] {
+                        if let projects = data["rgzbn_gm_ceiling_projects"] as? [AnyObject] {
+                            CoreDataManager.instance.removeAll()
+                            for project in projects {
+                                if let calc = project as? [String : AnyObject] {
+                                    let measurement = Measurement()
+                                    
+                                    if let address = calc["project_info"] as? String {
+                                        if address != "<null>" {
+                                            measurement.address = address
+                                        }
+                                    }
+                                    
+                                    if let status = calc["status_name"] as? String {
+                                        if status != "<null>" {
+                                            measurement.status = status
+                                        }
+                                    }
+                                    
+                                    if let projectId = calc["id"] as? String {
+                                        if projectId != "<null>" {
+                                            measurement.projectId = Int32(projectId)!
+                                        }
+                                    }
+                                    
+                                    if let projectSum = calc["project_sum"] as? String {
+                                        if projectSum != "<null>" {
+                                            measurement.projectSum = projectSum
+                                        }
+                                    }
+                                }
+                            }
+                            CoreDataManager.instance.saveContext()
+                            
+                            do {
+                                try self.fetchedResultsController?.performFetch()
+                            } catch {
+                                print(error)
+                            }
+                            
+                            self.tableView.reloadData()
+                        }
+                    }
+                }
+            }
+        }
+        
         do {
             try fetchedResultsController?.performFetch()
         } catch {
             print(error)
         }
+    }
+    
+    public func refresh()
+    {
+        performFetch()
         
         self.tableView.reloadData()
         self.refreshControl?.endRefreshing()
@@ -100,11 +158,7 @@ class MeasurementsTableViewController: UITableViewController, NSFetchedResultsCo
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.fetchedResultsController = getRowsOfMeasurement(filter: searchText)
         
-        do {
-            try fetchedResultsController?.performFetch()
-        } catch {
-            print(error)
-        }
+        performFetch()
         
         self.tableView.reloadData()
     }
@@ -114,11 +168,7 @@ class MeasurementsTableViewController: UITableViewController, NSFetchedResultsCo
             self.fetchedResultsController = getRowsOfMeasurement(filter: search.text)
         }
         
-        do {
-            try fetchedResultsController?.performFetch()
-        } catch {
-            print(error)
-        }
+        performFetch()
         
         self.tableView.reloadData()
         searchBar.resignFirstResponder()

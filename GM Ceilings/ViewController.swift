@@ -83,7 +83,7 @@ class ViewController: UIViewController, WKScriptMessageHandler, WKNavigationDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.nextPage.layer.cornerRadius = 15
+        self.nextPage.layer.cornerRadius = 10
         
         if let search = self.navigationBar.titleView as? UISearchBar {
             search.placeholder = "Введите адрес"

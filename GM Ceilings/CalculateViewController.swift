@@ -22,7 +22,7 @@ class CalculateViewController: UIViewController, WKScriptMessageHandler, WKNavig
     var latitude = "NULL"
     var longitude = "NULL"
     
-    var url = NSURL(string: "http://calc.gm-vrn.ru/client_calculate.php?device=ios")
+    var url = NSURL(string: PList.calculation)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class CalculateViewController: UIViewController, WKScriptMessageHandler, WKNavig
             self.longitude = Geoposition.longitude!.description
         }
         
-        url = NSURL(string: "http://calc.gm-vrn.ru/client_calculate.php?device=ios&latitude=\(latitude)&longitude=\(longitude)")
+        url = NSURL(string: PList.calculation + "&latitude=\(latitude)&longitude=\(longitude)")
         
         let request = NSURLRequest(url:url! as URL)
         self.webView!.load(request as URLRequest)

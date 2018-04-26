@@ -32,7 +32,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLc-Re-YU4" customClass="StyleUIButton" customModule="GM_Ceilings" customModuleProvider="target">
-                                <rect key="frame" x="11" y="454" width="298" height="50"/>
+                                <rect key="frame" x="11" y="459" width="298" height="50"/>
                                 <color key="backgroundColor" red="0.20784313730000001" green="0.12549019610000001" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="xHe-rC-EhC"/>
@@ -56,7 +56,7 @@
                             <constraint firstItem="RUm-Tn-oum" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="4H2-vk-ZxM"/>
                             <constraint firstItem="Ozc-Hd-3fO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="4c7-5M-qWe"/>
                             <constraint firstItem="RUm-Tn-oum" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="70g-s6-Q0v"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yLc-Re-YU4" secondAttribute="bottom" constant="15" id="Js7-Hv-e3C"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yLc-Re-YU4" secondAttribute="bottom" constant="10" id="Js7-Hv-e3C"/>
                             <constraint firstAttribute="leadingMargin" secondItem="yLc-Re-YU4" secondAttribute="leading" constant="5" id="fdJ-iY-rU5"/>
                             <constraint firstItem="RUm-Tn-oum" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="twZ-AL-ZiM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yLc-Re-YU4" secondAttribute="trailing" constant="-5" id="ucg-aZ-ZLM"/>
@@ -119,15 +119,15 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Адрес" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="te5-jP-2pM">
-                                            <rect key="frame" x="50" y="0.0" width="170" height="30"/>
+                                            <rect key="frame" x="50" y="0.0" width="150" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Статус" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m7C-n7-sVu">
-                                            <rect key="frame" x="220" y="0.0" width="50" height="30"/>
+                                            <rect key="frame" x="200" y="0.0" width="70" height="30"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="50" id="jiD-os-ISX"/>
+                                                <constraint firstAttribute="width" constant="70" id="jiD-os-ISX"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <nil key="textColor"/>
@@ -158,7 +158,7 @@
                                 <rect key="frame" x="0.0" y="58" width="320" height="31"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mxr-TW-gvU" id="aIW-gn-7H2">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="31"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ThH-7W-oD3">
@@ -174,15 +174,15 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Адрес" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIp-Pw-5Dk">
-                                                    <rect key="frame" x="50" y="9.5" width="170" height="12"/>
+                                                    <rect key="frame" x="50" y="9.5" width="150" height="12"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Статус" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8yh-ma-6Q5">
-                                                    <rect key="frame" x="220" y="9.5" width="50" height="12"/>
+                                                    <rect key="frame" x="200" y="9.5" width="70" height="12"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="50" id="z8g-tx-rHr"/>
+                                                        <constraint firstAttribute="width" constant="70" id="z8g-tx-rHr"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <nil key="textColor"/>
@@ -262,19 +262,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="616"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="TAt-RL-kb9">
-                                        <rect key="frame" x="10" y="10" width="300" height="952"/>
+                                        <rect key="frame" x="10" y="10" width="300" height="958"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="V3m-z8-0P9">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="134.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="100.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пользователь" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kc9-zK-XlC">
-                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="OVO-T6-9IC">
-                                                        <rect key="frame" x="0.0" y="34" width="300" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Логин:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBR-5I-hSI">
                                                                 <rect key="frame" x="0.0" y="0.0" width="53.5" height="20.5"/>
@@ -291,7 +285,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KwQ-rQ-g4B" customClass="StyleUIButton" customModule="GM_Ceilings" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="64.5" width="300" height="30"/>
+                                                        <rect key="frame" x="0.0" y="30.5" width="300" height="30"/>
                                                         <color key="backgroundColor" red="0.20784313730000001" green="0.12549019610000001" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <state key="normal" title="Изменить пароль">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -301,7 +295,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LEm-Oh-uKw" customClass="StyleUIButton" customModule="GM_Ceilings" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="104.5" width="300" height="30"/>
+                                                        <rect key="frame" x="0.0" y="70.5" width="300" height="30"/>
                                                         <color key="backgroundColor" red="0.20784313730000001" green="0.12549019610000001" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <state key="normal" title="Выйти">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -313,7 +307,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MBe-4d-Vsu">
-                                                <rect key="frame" x="0.0" y="234.5" width="300" height="171"/>
+                                                <rect key="frame" x="0.0" y="200.5" width="300" height="171"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите логин:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3n0-65-C0S">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
@@ -321,7 +315,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Логин" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VLR-10-PqS" customClass="StyleUITextField" customModule="GM_Ceilings" customModuleProvider="target">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="+7" borderStyle="roundedRect" placeholder="Логин" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VLR-10-PqS" customClass="StyleUITextField" customModule="GM_Ceilings" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="30.5" width="300" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -337,7 +331,7 @@
                                                         <rect key="frame" x="0.0" y="101" width="300" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wtm-e7-qrb" customClass="StyleUIButton" customModule="GM_Ceilings" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="141" width="300" height="30"/>
@@ -352,7 +346,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1aD-VX-nVD">
-                                                <rect key="frame" x="0.0" y="505.5" width="300" height="281.5"/>
+                                                <rect key="frame" x="0.0" y="471.5" width="300" height="321.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите старый пароль:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lbf-QX-cap">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
@@ -400,8 +394,18 @@
                                                             <action selector="EditPassword:" destination="fAk-Cs-rf8" eventType="touchUpInside" id="6TG-Tw-cy7"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBA-bZ-riP" customClass="StyleUIButton" customModule="GM_Ceilings" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7xj-eH-AtN" customClass="StyleUIButton" customModule="GM_Ceilings" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="251.5" width="300" height="30"/>
+                                                        <color key="backgroundColor" red="0.20784313730000001" green="0.12549019610000001" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <state key="normal" title="Продолжить без изменения">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="getProfilePage:" destination="fAk-Cs-rf8" eventType="touchUpInside" id="3HB-CD-sY4"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBA-bZ-riP" customClass="StyleUIButton" customModule="GM_Ceilings" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="291.5" width="300" height="30"/>
                                                         <color key="backgroundColor" red="0.20784313730000001" green="0.12549019610000001" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <state key="normal" title="Выйти">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -413,7 +417,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Woe-ye-l53">
-                                                <rect key="frame" x="0.0" y="887" width="300" height="65"/>
+                                                <rect key="frame" x="0.0" y="893" width="300" height="65"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Контактная информация" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dw-n0-im4">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="24"/>
@@ -822,6 +826,6 @@
         <image name="menu" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="amV-nF-M1z"/>
+        <segue reference="sn5-Td-4WT"/>
     </inferredMetricsTieBreakers>
 </document>

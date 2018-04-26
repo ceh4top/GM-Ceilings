@@ -3,11 +3,11 @@
     <entity name="Measurement" representedClassName="Measurement" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dateTime" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="projectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="projectSum" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Measurement" positionX="-2729" positionY="254" width="128" height="120"/>
+        <element name="Measurement" positionX="-2729" positionY="254" width="128" height="118"/>
     </elements>
 </model>

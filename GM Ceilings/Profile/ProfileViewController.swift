@@ -18,7 +18,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginEntryTF: UITextField!
     @IBOutlet weak var passwordEntryTF: UITextField!
     
-    @IBAction func EntryAction(_ sender: UIButton) {
+    @IBAction func EntryAction(_ sender: StyleUIButton) {
         let username = self.loginEntryTF.text!
         let password = self.passwordEntryTF.text!
         self.assembleEntryForSend(username: username, password: password)
@@ -30,8 +30,23 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordOneTF: UITextField!
     @IBOutlet weak var passwordTwoTF: UITextField!
     
-    @IBAction func EditPassword(_ sender: UIButton) {
+    @IBAction func EditPassword(_ sender: StyleUIButton) {
         self.changePassword()
+    }
+    
+    @IBAction func getProfilePage(_ sender: StyleUIButton) {
+        self.loginProfileL.text = self.user.login
+        
+        self.user.changePassword = true
+        UserDefaults.setUser(self.user)
+        hideAll()
+        self.Profile.isHidden = false
+    }
+    
+    func hideAll() {
+        self.Entry.isHidden = true
+        self.Profile.isHidden = true
+        self.Password.isHidden = true
     }
     
     // Profile
@@ -41,8 +56,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         self.user = UserData(id: "", login: "", password: "", changePassword: false, firstLoad: false)
         UserDefaults.setUser(self.user)
         
-        self.Profile.isHidden = true
-        self.Password.isHidden = true
+        self.hideAll()
         self.Entry.isHidden = false
         self.navigationItem.title = "Вход"
         
@@ -53,7 +67,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         self.passwordOldL.isHidden = false
         self.passwordOldTF.isHidden = false
         
-        self.Profile.isHidden = true
+        hideAll()
         self.Password.isHidden = false
         self.navigationItem.title = "Изменение пароля"
     }
@@ -64,9 +78,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.Password.isHidden = true
-        self.Entry.isHidden = true
-        self.Profile.isHidden = true
+        hideAll()
         
         self.user = UserDefaults.getUser()
         
@@ -102,4 +114,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
     }
 
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        switch textField {
+        case loginEntryTF:
+            return Helper.checkStringByPhone(string: (textField.text?.appending(string))!)
+        default:
+            return true
+        }
+    }
 }

@@ -36,6 +36,7 @@
 		87C480832084953A00E3FFD3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C480802084953A00E3FFD3 /* CoreDataManager.swift */; };
 		87C480B520849FBD00E3FFD3 /* GM DB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 87C480B320849FBD00E3FFD3 /* GM DB.xcdatamodeld */; };
 		87CC0C762089CAB8001CEA66 /* Geoposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC0C752089CAB8001CEA66 /* Geoposition.swift */; };
+		87D5E43D2091F4DB008170F5 /* PList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D5E43C2091F4DB008170F5 /* PList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		87C480802084953A00E3FFD3 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = CoreData/CoreDataManager.swift; sourceTree = "<group>"; };
 		87C480B420849FBD00E3FFD3 /* GM DB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "GM DB.xcdatamodel"; sourceTree = "<group>"; };
 		87CC0C752089CAB8001CEA66 /* Geoposition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geoposition.swift; path = Helpers/Geoposition.swift; sourceTree = "<group>"; };
+		87D5E43C2091F4DB008170F5 /* PList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PList.swift; path = Helpers/PList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				87CC0C752089CAB8001CEA66 /* Geoposition.swift */,
 				87A819A0208F03A70009FB2F /* UserData.swift */,
 				87B433972090ABF80073F922 /* Log.swift */,
+				87D5E43C2091F4DB008170F5 /* PList.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				87B4338B20905D060073F922 /* PasswordProfileUIViewController.swift in Sources */,
 				879F0C062080C85C003BF3F2 /* AppDelegate.swift in Sources */,
 				87B433942090A3920073F922 /* StyleUIButton.swift in Sources */,
+				87D5E43D2091F4DB008170F5 /* PList.swift in Sources */,
 				87B4338920905C8D0073F922 /* EntryProfileUIViewController.swift in Sources */,
 				87C480B520849FBD00E3FFD3 /* GM DB.xcdatamodeld in Sources */,
 				87B433982090ABF80073F922 /* Log.swift in Sources */,

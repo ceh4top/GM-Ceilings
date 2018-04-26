@@ -39,7 +39,7 @@ extension ProfileViewController {
     }
     
     func sendServerChangePassword(parameters: [String : String]) {
-        guard let urlPath = URL(string: "http://test1.gm-vrn.ru/index.php?option=com_gm_ceiling&task=api.changePswd") else { return }
+        guard let urlPath = URL(string: PList.changePswd) else { return }
         
         var request = URLRequest(url: urlPath)
         request.httpMethod = "POST"
@@ -56,24 +56,24 @@ extension ProfileViewController {
                 
                 if status {
                     Log.msg(json as Any)
-                    if let statusAnswer = json?["status"] as? String {
+                    if let statusAnswer = json["status"] as? String {
                         if statusAnswer == "success" {
                             self.user.password = parameters["password"]!
                             self.user.changePassword = true
                             UserDefaults.setUser(self.user)
                             
-                            self.Password.isHidden = true
+                            self.hideAll()
                             self.Profile.isHidden = false
                             self.navigationItem.title = "Профиль"
                             
                             self.loginProfileL.text = self.user.login
                         }
                         
-                        if let t = json?["title"] as? String {
+                        if let t = json["title"] as? String {
                             title = t
                         }
                         
-                        if let m = json?["message"] as? String {
+                        if let m = json["message"] as? String {
                             message = m
                         }
                     }

@@ -44,6 +44,8 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
     var constraint = CGFloat(0)
     let user = UserDefaults.getUser()
     
+    var measurmentId : String = "0"
+    
     func datePickerValueChanged(sender:UIDatePicker) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
@@ -100,7 +102,7 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
     }
     
     func getTimes(date: String) {
-        guard let urlPath = URL(string: "http://test1.gm-vrn.ru/index.php?option=com_gm_ceiling&task=api.getTimes") else { return }
+        guard let urlPath = URL(string: PList.getTimes) else { return }
         
         var request = URLRequest(url: urlPath)
         request.httpMethod = "POST"
@@ -121,9 +123,9 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
                     var message = "Сервер не отвечает, попробуйте позже."
                     if status {
                         Log.msg(json as Any)
-                        if let answerStatus = json?["status"] as? String {
+                        if let answerStatus = json["status"] as? String {
                             if answerStatus == "success" {
-                                if let array = json?["times"] as? [String] {
+                                if let array = json["times"] as? [String] {
                                     self.timeArray = array
                                     if self.timeArray.count == 0 {
                                         Message.Show(title: "Нет замерщиков", message: "К сожалению на эту дату нет замерщиков, выберите другую дату", controller: self)
@@ -137,11 +139,11 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
                                 }
                             } else {
                                 
-                                if let t = json?["title"] as? String {
+                                if let t = json["title"] as? String {
                                     title = t
                                 }
                                 
-                                if let m = json?["message"] as? String {
+                                if let m = json["message"] as? String {
                                     message = m
                                 }
                                 
@@ -159,7 +161,7 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
     }
     
     func sendDataComplite(parameters: [String : String]) {
-        guard let urlPath = URL(string: "http://test1.gm-vrn.ru/index.php?option=com_gm_ceiling&task=api.addNewClient") else { return }
+        guard let urlPath = URL(string: PList.addNewClient) else { return }
         
         var request = URLRequest(url: urlPath)
         request.httpMethod = "POST"
@@ -181,20 +183,16 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
                     
                     if status {
                         Log.msg(json as Any)
-                        if let statusAnswer = json?["status"] as? String {
+                        if let statusAnswer = json["status"] as? String {
                             if statusAnswer == "success" {
                                 if self.user.login == "" {
-                                    
-                                    if let answer = json?["answer"] as? [String : Any] {
+                                    if let answer = json["answer"] as? [String : Any] {
                                         if let id = answer["user_id"] as? String {
                                             self.user.id = id
                                         }
                                         if let LP = answer["username"] as? String {
                                             self.user.login = LP
                                             self.user.password = LP
-                                        }
-                                        if let projectId = answer["project_id"] as? String {
-                                            self.measurmentId = projectId
                                         }
                                         self.user.changePassword = false
                                         
@@ -205,6 +203,13 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
                                     self.clientName.isHidden = true
                                     self.clientPhoneLable.isHidden = true
                                     self.clientPhone.isHidden = true
+                                } else {
+                                    if let answer = json["answer"] as? [String:AnyObject] {
+                                        if let projectId = answer["project_id"] as? String {
+                                            Log.msg(projectId)
+                                            self.measurmentId = projectId
+                                        }
+                                    }
                                 }
                                 
                                 if !self.user.changePassword {
@@ -217,10 +222,10 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
                             }
                         }
                         
-                        if let t = json?["title"] as? String {
+                        if let t = json["title"] as? String {
                             title = t
                         }
-                        if let m = json?["message"] as? String {
+                        if let m = json["message"] as? String {
                             message = m
                         }
                     }
@@ -245,11 +250,10 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
         self.clientAddress?.text = clientAddressMap
     }
     
-    var measurmentId = "0"
     func saveDataForDB() {
         let measurment = Measurement()
         measurment.address = self.clientAddress.text! + " кв. " + self.clientaApartmentNumber.text!
-        measurment.projectId = measurmentId
+        measurment.projectId = Int32(self.measurmentId)!
         measurment.status = "Ждет замера"
         measurment.dateTime = self.clientDate.text! + " " + self.clientTime.text!
         measurment.projectSum = ""
@@ -343,7 +347,7 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Agreement" {
             if let fvc = segue.destination as? BrowserViewController {
-                fvc.URL = NSURL(string: "http://calc.gm-vrn.ru/index.php?option=com_gm_ceiling&view=info&type=termsofuse")
+                fvc.URL = NSURL(string: PList.termsofuse)
                 fvc.NavTitle = "Соглашение"
             }
         }

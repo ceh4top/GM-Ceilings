@@ -24,7 +24,7 @@ extension ProfileViewController {
     }
     
     func sendServerEntry(parameters: [String : String]) {
-        guard let urlPath = URL(string: "http://test1.gm-vrn.ru/index.php?option=com_gm_ceiling&task=api.iOSauthorisation") else { return }
+        guard let urlPath = URL(string: PList.iOSauthorisation) else { return }
         
         var request = URLRequest(url: urlPath)
         request.httpMethod = "POST"
@@ -44,16 +44,27 @@ extension ProfileViewController {
                         Log.msg(json as Any)
                         if let statusAnswer = json["status"] as? String {
                             if statusAnswer == "success" {
+                                if let data = json["data"] as? [String : AnyObject] {
+                                    if let clients = data["rgzbn_gm_ceiling_clients"] as? [AnyObject] {
+                                        if let client = clients[0] as? [String : AnyObject] {
+                                            if let id = client["dealer_id"] as? String {
+                                                Log.msg(id)
+                                                self.user.id = id
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                                self.user.login = parameters["username"]!
                                 self.user.password = parameters["password"]!
                                 self.user.changePassword = true
                                 UserDefaults.setUser(self.user)
                                 
-                                self.Entry.isHidden = true
-                                self.Password.isHidden = true
+                                self.hideAll()
                                 self.Profile.isHidden = false
                                 self.navigationItem.title = "Профиль"
                                 
-                                self.loginEntryTF.text = self.user.login
+                                self.loginProfileL.text = self.user.login
                                 
                                 self.setData(json)
                             }
@@ -87,7 +98,7 @@ extension ProfileViewController {
                             }
                         }
                         
-                        if let status = calc["project_status"] as? String {
+                        if let status = calc["status_name"] as? String {
                             if status != "<null>" {
                                 measurement.status = status
                             }
@@ -95,7 +106,7 @@ extension ProfileViewController {
                         
                         if let projectId = calc["id"] as? String {
                             if projectId != "<null>" {
-                                measurement.projectId = projectId
+                                measurement.projectId = Int32(projectId)!
                             }
                         }
                         

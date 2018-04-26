@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Helper {
+public class Helper {    
     static func removeSpecialCharsFromString(text: String) -> String {
         let okayChars : Set<Character> =
             Set("abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890+-*=(),.:!_".characters)
@@ -39,24 +39,43 @@ public class Helper {
     }
     
     public static func execTask(request: URLRequest, taskCallback: @escaping (Bool,
-        AnyObject?) -> ()) {
+        AnyObject) -> ()) {
         let session = URLSession(configuration: URLSessionConfiguration.default)
         session.dataTask(with: request, completionHandler: {(data, response, error) -> Void in
             if let data = data {
                 if let response = response as? HTTPURLResponse , 200...299 ~= response.statusCode {
                     let json = try? JSONSerialization.jsonObject(with: data, options: [])
-                    taskCallback(true, json as AnyObject?)
+                    taskCallback(true, json as AnyObject)
                 } else {
-                    taskCallback(false, nil)
+                    taskCallback(false, 0 as AnyObject)
                 }
             }
         }).resume()
     }
+    
+    public static func sendServer(parameters: [String : AnyObject], href: String, callback: @escaping (Bool, AnyObject) -> ()) {
+        
+        guard let urlPath = URL(string: href) else { return }
+        
+        var request = URLRequest(url: urlPath)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
+        
+        request.httpBody = httpBody
+        
+        self.execTask(request: request) { (status, json) in
+            DispatchQueue.main.async {
+                callback(status, json)
+            }
+        }
+    }
 }
 
 extension UserDefaults{
-    static var user : UserData = UserData()
-    static var updatedUser : Bool = false
+    @nonobjc static var user : UserData = UserData()
+    @nonobjc static var updatedUser : Bool = false
     
     static func loadUser() {
         let user = standard.dictionary(forKey: "user")
@@ -77,6 +96,7 @@ extension UserDefaults{
             self.user.firstLoad = firstLoad
         }
         
+        Log.msg(self.user.toString())
         updatedUser = true
     }
     
@@ -85,6 +105,7 @@ extension UserDefaults{
             loadUser()
         }
         
+        Log.msg(self.user.toString())
         return self.user
     }
     
@@ -100,6 +121,8 @@ extension UserDefaults{
         
         standard.set(userResult, forKey: "user")
         self.updatedUser = false
+        
+        Log.msg(self.user.toString())
     }
     
     static func isChangePassword() -> Bool {
