@@ -42,7 +42,7 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
     
     var hideScroll : Bool = true
     var constraint = CGFloat(0)
-    let user = ConstantDataManagement.getUser()
+    let user = UserDefaults.getUser()
     
     func datePickerValueChanged(sender:UIDatePicker) {
         let dateFormatter = DateFormatter()
@@ -187,7 +187,7 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
                                     
                                     if let answer = json?["answer"] as? [String : Any] {
                                         if let id = answer["user_id"] as? String {
-                                            self.user.id = Int(id)!
+                                            self.user.id = id
                                         }
                                         if let LP = answer["username"] as? String {
                                             self.user.login = LP
@@ -197,14 +197,14 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
                                             self.measurmentId = projectId
                                         }
                                         self.user.changePassword = false
+                                        
+                                        UserDefaults.setUser(self.user)
                                     }
                                     
                                     self.clientNameLabel.isHidden = true
                                     self.clientName.isHidden = true
                                     self.clientPhoneLable.isHidden = true
                                     self.clientPhone.isHidden = true
-                                    
-                                    ConstantDataManagement.setUser(user: self.user);
                                 }
                                 
                                 if !self.user.changePassword {

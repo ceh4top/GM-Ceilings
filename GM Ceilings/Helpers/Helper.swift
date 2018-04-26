@@ -53,3 +53,68 @@ public class Helper {
         }).resume()
     }
 }
+
+extension UserDefaults{
+    static var user : UserData = UserData()
+    static var updatedUser : Bool = false
+    
+    static func loadUser() {
+        let user = standard.dictionary(forKey: "user")
+        
+        if let id = user?["id"] as? String {
+            self.user.id = id
+        }
+        if let login = user?["login"] as? String {
+            self.user.login = login
+        }
+        if let password = user?["password"] as? String {
+            self.user.password = password
+        }
+        if let changePassword = user?["changePassword"] as? Bool {
+            self.user.changePassword = changePassword
+        }
+        if let firstLoad = user?["firstLoad"] as? Bool {
+            self.user.firstLoad = firstLoad
+        }
+        
+        updatedUser = true
+    }
+    
+    static func getUser() -> UserData {
+        if !self.updatedUser {
+            loadUser()
+        }
+        
+        return self.user
+    }
+    
+    static func setUser(_ user: UserData) {
+        self.user = user
+        
+        var userResult : [String : Any] = [:]
+        userResult.updateValue(self.user.id, forKey: "id")
+        userResult.updateValue(self.user.login, forKey: "login")
+        userResult.updateValue(self.user.password, forKey: "password")
+        userResult.updateValue(self.user.changePassword, forKey: "changePassword")
+        userResult.updateValue(self.user.firstLoad, forKey: "firstLoad")
+        
+        standard.set(userResult, forKey: "user")
+        self.updatedUser = false
+    }
+    
+    static func isChangePassword() -> Bool {
+        if !self.updatedUser {
+            loadUser()
+        }
+        
+        return self.user.changePassword
+    }
+    
+    static func isFirstLoad() -> Bool {
+        if !self.updatedUser {
+            loadUser()
+        }
+        
+        return self.user.firstLoad
+    }
+}

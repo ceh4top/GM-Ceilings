@@ -20,7 +20,7 @@ extension ProfileViewController {
             return
         }
         
-        assembleDataForSend(oldPassword: passwordOld, password: passwordOne, user_id: user_id)
+        assembleDataForSend(oldPassword: passwordOld, password: passwordOne, user_id: user_id!)
     }
     
     func assembleDataForSend(oldPassword : String, password : String, user_id : String) {
@@ -60,11 +60,13 @@ extension ProfileViewController {
                         if statusAnswer == "success" {
                             self.user.password = parameters["password"]!
                             self.user.changePassword = true
-                            ConstantDataManagement.setUser(user: self.user)
+                            UserDefaults.setUser(self.user)
                             
                             self.Password.isHidden = true
                             self.Profile.isHidden = false
                             self.navigationItem.title = "Профиль"
+                            
+                            self.loginProfileL.text = self.user.login
                         }
                         
                         if let t = json?["title"] as? String {

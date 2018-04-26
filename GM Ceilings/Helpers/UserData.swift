@@ -8,26 +8,29 @@
 
 import Foundation
 class UserData {
-    public var id : Int
+    public var id : String
     public var login : String
     public var password : String
     public var changePassword : Bool
+    public var firstLoad : Bool
     
-    init(id: Int, login: String, password: String, changePassword: Bool) {
+    init(id: String, login: String, password: String, changePassword: Bool, firstLoad: Bool) {
         self.id = id
         self.login = login
         self.password = password
         self.changePassword = changePassword
+        self.firstLoad = firstLoad
     }
     
     init() {
-        self.id = 0
+        self.id = ""
         self.login = ""
         self.password = ""
         self.changePassword = false
+        self.firstLoad = true
     }
     
     public func toString() -> String {
-        return "id: \(self.id); login: \(self.login); password: \(self.password); change: \(self.changePassword)"
+        return "id: \(self.id); login: \(self.login); password: \(self.password); change: \(self.changePassword); first: \(self.firstLoad)"
     }
 }

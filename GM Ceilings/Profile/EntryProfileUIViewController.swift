@@ -44,15 +44,16 @@ extension ProfileViewController {
                         Log.msg(json as Any)
                         if let statusAnswer = json["status"] as? String {
                             if statusAnswer == "success" {
-                                self.loginEntryTF.text = parameters["username"]!
                                 self.user.password = parameters["password"]!
                                 self.user.changePassword = true
-                                ConstantDataManagement.setUser(user: self.user)
+                                UserDefaults.setUser(self.user)
                                 
                                 self.Entry.isHidden = true
                                 self.Password.isHidden = true
                                 self.Profile.isHidden = false
                                 self.navigationItem.title = "Профиль"
+                                
+                                self.loginEntryTF.text = self.user.login
                                 
                                 self.setData(json)
                             }
@@ -77,12 +78,32 @@ extension ProfileViewController {
         if let data = json["data"] as? [String : AnyObject] {
             if let projects = data["rgzbn_gm_ceiling_projects"] as? [AnyObject] {
                 for object in projects {
-                    if let calc = object as? [String:String] {
+                    if let calc = object as? [String:AnyObject] {
                         let measurement = Measurement()
-                        measurement.address = ((calc["project_info"] != nil) ? calc["project_info"] : "")
-                        measurement.status = ((calc["project_status"] != nil) ? calc["project_status"] : "")
-                        measurement.projectId = ((calc["id"] != nil) ? calc["id"] : "")
-                        measurement.projectSum = ((calc["project_sum"] != nil) ? calc["project_sum"] : "")
+                        
+                        if let address = calc["project_info"] as? String {
+                            if address != "<null>" {
+                                measurement.address = address
+                            }
+                        }
+                        
+                        if let status = calc["project_status"] as? String {
+                            if status != "<null>" {
+                                measurement.status = status
+                            }
+                        }
+                        
+                        if let projectId = calc["id"] as? String {
+                            if projectId != "<null>" {
+                                measurement.projectId = projectId
+                            }
+                        }
+                        
+                        if let projectSum = calc["project_sum"] as? String {
+                            if projectSum != "<null>" {
+                                measurement.projectSum = projectSum
+                            }
+                        }
                     }
                 }
                 CoreDataManager.instance.saveContext()

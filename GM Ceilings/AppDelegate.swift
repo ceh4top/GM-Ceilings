@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         Geoposition.update()
-        ConstantDataManagement.loadData()
+        UserDefaults.loadUser()
         return true
     }
 

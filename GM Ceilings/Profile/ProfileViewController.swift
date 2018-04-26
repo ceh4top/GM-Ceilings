@@ -38,8 +38,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginProfileL: UILabel!
     
     @IBAction func ExitAction(_ sender: UIButton) {
-        self.user = UserData(id: 0, login: "", password: "", changePassword: false)
-        ConstantDataManagement.setUser(user: self.user)
+        self.user = UserData(id: "", login: "", password: "", changePassword: false, firstLoad: false)
+        UserDefaults.setUser(self.user)
         
         self.Profile.isHidden = true
         self.Password.isHidden = true
@@ -68,7 +68,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         self.Entry.isHidden = true
         self.Profile.isHidden = true
         
-        self.user = ConstantDataManagement.getUser()
+        self.user = UserDefaults.getUser()
         
         if user.login == "" {
             self.navigationItem.title = "Вход"
