@@ -35,10 +35,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func getProfilePage(_ sender: StyleUIButton) {
-        self.loginProfileL.text = self.user.login
+        self.loginProfileL.text = UserDefaults.getUser().login
         
-        self.user.changePassword = true
-        UserDefaults.setUser(self.user)
+        let user = UserDefaults.getUser()
+        user.changedPassword = true
+        UserDefaults.setUser(user)
+        
         hideAll()
         self.Profile.isHidden = false
     }
@@ -47,14 +49,15 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         self.Entry.isHidden = true
         self.Profile.isHidden = true
         self.Password.isHidden = true
+        self.view.endEditing(true)
     }
     
     // Profile
     @IBOutlet weak var loginProfileL: UILabel!
     
     @IBAction func ExitAction(_ sender: UIButton) {
-        self.user = UserData(id: "", login: "", password: "", changePassword: false, firstLoad: false)
-        UserDefaults.setUser(self.user)
+        let user = UserData(id: "", login: "", password: "", changedPassword: false, firstLoad: false)
+        UserDefaults.setUser(user)
         
         self.hideAll()
         self.Entry.isHidden = false
@@ -71,16 +74,13 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         self.Password.isHidden = false
         self.navigationItem.title = "Изменение пароля"
     }
-    
-    
-    var user : UserData = UserData()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         hideAll()
         
-        self.user = UserDefaults.getUser()
+        let user = UserDefaults.getUser()
         
         if user.login == "" {
             self.navigationItem.title = "Вход"
@@ -90,7 +90,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             self.loginEntryTF.delegate = self
             self.passwordEntryTF.delegate = self
         }
-        else if !user.changePassword {
+        else if !user.changedPassword {
             self.navigationItem.title = "Изменение пароля"
             
             self.passwordOldL.isHidden = true
@@ -121,5 +121,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         default:
             return true
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }

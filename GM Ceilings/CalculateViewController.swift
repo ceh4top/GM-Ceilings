@@ -21,6 +21,7 @@ class CalculateViewController: UIViewController, WKScriptMessageHandler, WKNavig
     
     var latitude = "NULL"
     var longitude = "NULL"
+    var user_id = "NULL"
     
     var url = NSURL(string: PList.calculation)
     
@@ -34,7 +35,11 @@ class CalculateViewController: UIViewController, WKScriptMessageHandler, WKNavig
             self.longitude = Geoposition.longitude!.description
         }
         
-        url = NSURL(string: PList.calculation + "&latitude=\(latitude)&longitude=\(longitude)")
+        if !UserDefaults.isUserEmpty() {
+            self.user_id = String(UserDefaults.getUser().id)
+        }
+        
+        url = NSURL(string: PList.calculation + "&latitude=\(self.latitude)&longitude=\(self.longitude)&user_id=\(self.user_id)&ADVT=27")
         
         let request = NSURLRequest(url:url! as URL)
         self.webView!.load(request as URLRequest)

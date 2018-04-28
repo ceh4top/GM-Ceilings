@@ -17,6 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         Geoposition.update()
         UserDefaults.loadUser()
+        
+        if UserDefaults.isFirstLoad() {
+            ImagesLoader.loadImages()
+        }
+        
         return true
     }
 

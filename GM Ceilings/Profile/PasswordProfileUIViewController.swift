@@ -13,7 +13,7 @@ extension ProfileViewController {
         let passwordOld = self.passwordOldTF.text!
         let passwordOne = self.passwordOneTF.text!
         let passwordTwo = self.passwordTwoTF.text!
-        let user_id = String(user.id)
+        let user_id = String(UserDefaults.getUser().id)
         
         if (passwordOne != passwordTwo) {
             Message.Show(title: "Пароли не совпадают", message: "Пароли не совпадают! Повторите ввод пароля", controller: self)
@@ -58,15 +58,16 @@ extension ProfileViewController {
                     Log.msg(json as Any)
                     if let statusAnswer = json["status"] as? String {
                         if statusAnswer == "success" {
-                            self.user.password = parameters["password"]!
-                            self.user.changePassword = true
-                            UserDefaults.setUser(self.user)
+                            let user = UserDefaults.getUser()
+                            user.password = parameters["password"]!
+                            user.changedPassword = true
+                            UserDefaults.setUser(user)
                             
                             self.hideAll()
                             self.Profile.isHidden = false
                             self.navigationItem.title = "Профиль"
                             
-                            self.loginProfileL.text = self.user.login
+                            self.loginProfileL.text = user.login
                         }
                         
                         if let t = json["title"] as? String {

@@ -77,6 +77,13 @@ extension UserDefaults{
     @nonobjc static var user : UserData = UserData()
     @nonobjc static var updatedUser : Bool = false
     
+    static func isUserEmpty() -> Bool {
+        if !self.updatedUser {
+            loadUser()
+        }
+        return user.login == ""
+    }
+    
     static func loadUser() {
         let user = standard.dictionary(forKey: "user")
         
@@ -89,8 +96,8 @@ extension UserDefaults{
         if let password = user?["password"] as? String {
             self.user.password = password
         }
-        if let changePassword = user?["changePassword"] as? Bool {
-            self.user.changePassword = changePassword
+        if let changePassword = user?["changedPassword"] as? Bool {
+            self.user.changedPassword = changePassword
         }
         if let firstLoad = user?["firstLoad"] as? Bool {
             self.user.firstLoad = firstLoad
@@ -116,7 +123,7 @@ extension UserDefaults{
         userResult.updateValue(self.user.id, forKey: "id")
         userResult.updateValue(self.user.login, forKey: "login")
         userResult.updateValue(self.user.password, forKey: "password")
-        userResult.updateValue(self.user.changePassword, forKey: "changePassword")
+        userResult.updateValue(self.user.changedPassword, forKey: "changedPassword")
         userResult.updateValue(self.user.firstLoad, forKey: "firstLoad")
         
         standard.set(userResult, forKey: "user")
@@ -125,12 +132,12 @@ extension UserDefaults{
         Log.msg(self.user.toString())
     }
     
-    static func isChangePassword() -> Bool {
+    static func isChangedPassword() -> Bool {
         if !self.updatedUser {
             loadUser()
         }
         
-        return self.user.changePassword
+        return self.user.changedPassword
     }
     
     static func isFirstLoad() -> Bool {

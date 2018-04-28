@@ -15,13 +15,19 @@ class ViewController: UIViewController, WKScriptMessageHandler, WKNavigationDele
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var newViewStrong: UIView!
-    @IBOutlet weak var nextPage: UIButton!
+    @IBOutlet weak var nextPage: StyleUIButton!
+    @IBOutlet weak var calcPage: StyleUIButton!
     @IBOutlet weak var newView: UIView!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet var containerView : UIView! = nil
     var webView: WKWebView?
     
     var locationManager:CLLocationManager! = CLLocationManager()
+    
+    @IBAction func showCalc(_ sender: StyleUIButton) {
+        self.tabBarController?.selectedIndex = 0
+    }
+    
     
     override func loadView() {
         super.loadView()
@@ -84,6 +90,8 @@ class ViewController: UIViewController, WKScriptMessageHandler, WKNavigationDele
         super.viewDidLoad()
         
         self.nextPage.layer.cornerRadius = 10
+        self.calcPage.layer.cornerRadius = 10
+        
         
         if let search = self.navigationBar.titleView as? UISearchBar {
             search.placeholder = "Введите адрес"

@@ -44,27 +44,29 @@ extension ProfileViewController {
                         Log.msg(json as Any)
                         if let statusAnswer = json["status"] as? String {
                             if statusAnswer == "success" {
+                                let user = UserDefaults.getUser()
+                                
                                 if let data = json["data"] as? [String : AnyObject] {
                                     if let clients = data["rgzbn_gm_ceiling_clients"] as? [AnyObject] {
                                         if let client = clients[0] as? [String : AnyObject] {
                                             if let id = client["dealer_id"] as? String {
                                                 Log.msg(id)
-                                                self.user.id = id
+                                                user.id = id
                                             }
                                         }
                                     }
                                 }
                                 
-                                self.user.login = parameters["username"]!
-                                self.user.password = parameters["password"]!
-                                self.user.changePassword = true
-                                UserDefaults.setUser(self.user)
+                                user.login = parameters["username"]!
+                                user.password = parameters["password"]!
+                                user.changedPassword = true
+                                UserDefaults.setUser(user)
                                 
                                 self.hideAll()
                                 self.Profile.isHidden = false
                                 self.navigationItem.title = "Профиль"
                                 
-                                self.loginProfileL.text = self.user.login
+                                self.loginProfileL.text = user.login
                                 
                                 self.setData(json)
                             }

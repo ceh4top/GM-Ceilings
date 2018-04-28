@@ -11,14 +11,14 @@ class UserData {
     public var id : String
     public var login : String
     public var password : String
-    public var changePassword : Bool
+    public var changedPassword : Bool
     public var firstLoad : Bool
     
-    init(id: String, login: String, password: String, changePassword: Bool, firstLoad: Bool) {
+    init(id: String, login: String, password: String, changedPassword: Bool, firstLoad: Bool) {
         self.id = id
         self.login = login
         self.password = password
-        self.changePassword = changePassword
+        self.changedPassword = changedPassword
         self.firstLoad = firstLoad
     }
     
@@ -26,11 +26,11 @@ class UserData {
         self.id = ""
         self.login = ""
         self.password = ""
-        self.changePassword = false
+        self.changedPassword = false
         self.firstLoad = true
     }
     
     public func toString() -> String {
-        return "id: \(self.id); login: \(self.login); password: \(self.password); change: \(self.changePassword); first: \(self.firstLoad)"
+        return "id: \(self.id); login: \(self.login); password: \(self.password); change: \(self.changedPassword); first: \(self.firstLoad)"
     }
 }

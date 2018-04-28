@@ -42,7 +42,6 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
     
     var hideScroll : Bool = true
     var constraint = CGFloat(0)
-    let user = UserDefaults.getUser()
     
     var measurmentId : String = "0"
     
@@ -61,7 +60,7 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
         var success = 0
         var parameters: [String : String] = ["Type":"Client"]
         
-        if user.login == "" {
+        if UserDefaults.isUserEmpty() {
             if (clientPhone.text == "") {success = 1}
             
             let phone = clientPhone.text!
@@ -75,10 +74,9 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
         }
         
         if success == 0 {
-            if user.login != "" {
-                parameters.updateValue(user.id.description, forKey: "user_id")
-            }
-            else {
+            if UserDefaults.isUserEmpty() {
+                parameters.updateValue(UserDefaults.getUser().id.description, forKey: "user_id")
+            } else {
                 parameters.updateValue(clientName.text!, forKey: "name")
                 parameters.updateValue(clientPhone.text!, forKey: "phone")
             }
@@ -87,6 +85,7 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
             parameters.updateValue(clientaApartmentNumber.text!, forKey: "apartmentNumber")
             parameters.updateValue(clientDate.text!, forKey: "date")
             parameters.updateValue(clientTime.text!, forKey: "time")
+            parameters.updateValue(String(27), forKey: "ADVT")
             
             if !Geoposition.isEmpty {
                 parameters.updateValue(Geoposition.latitude!.description, forKey: "latitude")
@@ -185,18 +184,22 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
                         Log.msg(json as Any)
                         if let statusAnswer = json["status"] as? String {
                             if statusAnswer == "success" {
-                                if self.user.login == "" {
+                                if UserDefaults.isUserEmpty() {
                                     if let answer = json["answer"] as? [String : Any] {
-                                        if let id = answer["user_id"] as? String {
-                                            self.user.id = id
-                                        }
-                                        if let LP = answer["username"] as? String {
-                                            self.user.login = LP
-                                            self.user.password = LP
-                                        }
-                                        self.user.changePassword = false
+                                        let user = UserDefaults.getUser()
                                         
-                                        UserDefaults.setUser(self.user)
+                                        if let id = answer["user_id"] as? String {
+                                            user.id = id
+                                        }
+                                        
+                                        if let LP = answer["username"] as? String {
+                                            user.login = LP
+                                            user.password = LP
+                                        }
+                                        
+                                        user.changedPassword = false
+                                        
+                                        UserDefaults.setUser(user)
                                     }
                                     
                                     self.clientNameLabel.isHidden = true
@@ -212,12 +215,13 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
                                     }
                                 }
                                 
-                                if !self.user.changePassword {
+                                if !UserDefaults.isChangedPassword() {
                                     self.performSegue(withIdentifier: "showProfile", sender: self)
                                 }
                                 else {
                                     flagBack = true
                                 }
+                                
                                 self.saveDataForDB()
                             }
                         }
@@ -291,7 +295,7 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
         self.clientTime.delegate = self
         self.clientaApartmentNumber.delegate = self
         
-        if user.login != "" {
+        if !UserDefaults.isUserEmpty() {
             self.clientName.isHidden = true
             self.clientNameLabel.isHidden = true
             self.clientPhone.isHidden = true
@@ -430,5 +434,21 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         self.focusTextField = textField
         return true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !UserDefaults.isUserEmpty() {
+            self.clientName.isHidden = true
+            self.clientNameLabel.isHidden = true
+            self.clientPhone.isHidden = true
+            self.clientPhoneLable.isHidden = true
+        } else {
+            self.clientName.isHidden = false
+            self.clientNameLabel.isHidden = false
+            self.clientPhone.isHidden = false
+            self.clientPhoneLable.isHidden = false
+        }
     }
 }

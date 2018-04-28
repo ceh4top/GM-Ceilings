@@ -16,5 +16,5 @@ public class PList {
     static let iOSauthorisation = api + "iOSauthorisation"
     static let changePswd = api + "changePswd"
     static let getTimes = api + "getTimes"
-    static let termsofuse = server + "index.php?option=com_gm_ceiling&view=info&type=termsofuse"
+    static let termsofuse = "https://xn--c1akfdemag2a.xn--p1ai/footer/terms_of_use.html"
 }
