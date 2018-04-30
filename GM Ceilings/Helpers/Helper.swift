@@ -39,21 +39,21 @@ public class Helper {
     }
     
     public static func execTask(request: URLRequest, taskCallback: @escaping (Bool,
-        Any) -> ()) {
+        AnyObject) -> ()) {
         let session = URLSession(configuration: URLSessionConfiguration.default)
         session.dataTask(with: request, completionHandler: {(data, response, error) -> Void in
             if let data = data {
                 if let response = response as? HTTPURLResponse , 200...299 ~= response.statusCode {
                     let json = try? JSONSerialization.jsonObject(with: data, options: [])
-                    taskCallback(true, json as Any)
+                    taskCallback(true, json as AnyObject)
                 } else {
-                    taskCallback(false, 0 as Any)
+                    taskCallback(false, 0 as AnyObject)
                 }
             }
         }).resume()
     }
     
-    public static func sendServer(parameters: [String : AnyObject], href: String, callback: @escaping (Bool, Any) -> ()) {
+    public static func sendServer(parameters: [String : AnyObject], href: String, callback: @escaping (Bool, AnyObject) -> ()) {
         
         guard let urlPath = URL(string: href) else { return }
         
@@ -72,7 +72,7 @@ public class Helper {
         }
     }
     
-    public static func loadServer(href: String, callback: @escaping (Bool, Any) -> ()) {
+    public static func loadServer(href: String, callback: @escaping (Bool, AnyObject) -> ()) {
         
         guard let urlPath = URL(string: href) else { return }
         

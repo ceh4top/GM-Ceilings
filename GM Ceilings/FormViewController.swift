@@ -120,7 +120,7 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
                     var title = "Сервер не отвечает"
                     var message = "Сервер не отвечает, попробуйте позже."
                     if status {
-                        Log.msg(json)
+                        Log.msg(json as Any)
                         if let answerStatus = json["status"] as? String {
                             if answerStatus == "success" {
                                 if let array = json["times"] as? [String] {
