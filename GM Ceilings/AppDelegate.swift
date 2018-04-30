@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,9 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 ImagesLoader.loadImages()
             }
         }
-        
-        
-        FirebaseApp.configure()
         
         Geoposition.update()
         UserDefaults.loadUser()
