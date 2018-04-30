@@ -1,6 +1,0 @@
-framework module Pods_GM_Ceilings {
-  umbrella header "Pods-GM Ceilings-umbrella.h"
-
-  export *
-  module * { export * }
-}

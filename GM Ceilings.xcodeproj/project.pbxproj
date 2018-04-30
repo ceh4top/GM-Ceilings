@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C85496F2C4F5A29E4487407 /* Pods_GM_Ceilings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40377977A694D0456E8EC4B4 /* Pods_GM_Ceilings.framework */; };
 		87208B2720887D0300754113 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87208B2620887D0300754113 /* Helper.swift */; };
 		8751E03D2096F8A100611748 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8751E03C2096F8A100611748 /* GoogleService-Info.plist */; };
 		879F0C062080C85C003BF3F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F0C052080C85C003BF3F2 /* AppDelegate.swift */; };
@@ -44,8 +43,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		21C0DF7A93436274774E509F /* Pods-GM Ceilings.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GM Ceilings.release.xcconfig"; path = "Pods/Target Support Files/Pods-GM Ceilings/Pods-GM Ceilings.release.xcconfig"; sourceTree = "<group>"; };
-		40377977A694D0456E8EC4B4 /* Pods_GM_Ceilings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GM_Ceilings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87208B2620887D0300754113 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helper.swift; path = Helpers/Helper.swift; sourceTree = "<group>"; };
 		8751E03C2096F8A100611748 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		879F0C022080C85C003BF3F2 /* GM Ceilings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GM Ceilings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,7 +78,6 @@
 		87C4B9BB2093569300E5974E /* ImagesLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImagesLoader.swift; path = Learning/ImagesLoader.swift; sourceTree = "<group>"; };
 		87CC0C752089CAB8001CEA66 /* Geoposition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geoposition.swift; path = Helpers/Geoposition.swift; sourceTree = "<group>"; };
 		87D5E43C2091F4DB008170F5 /* PList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PList.swift; path = Helpers/PList.swift; sourceTree = "<group>"; };
-		B840A14306B6E12E22CC27DD /* Pods-GM Ceilings.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GM Ceilings.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GM Ceilings/Pods-GM Ceilings.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,22 +85,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C85496F2C4F5A29E4487407 /* Pods_GM_Ceilings.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6AA4E66E9B8DBD1DE19E970F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B840A14306B6E12E22CC27DD /* Pods-GM Ceilings.debug.xcconfig */,
-				21C0DF7A93436274774E509F /* Pods-GM Ceilings.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		87208B2520887CDB00754113 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,8 +111,6 @@
 				879F0C232080C9A9003BF3F2 /* Resources */,
 				879F0C042080C85C003BF3F2 /* GM Ceilings */,
 				879F0C032080C85C003BF3F2 /* Products */,
-				6AA4E66E9B8DBD1DE19E970F /* Pods */,
-				EF5ADE1064FF83388D1FDA37 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -236,14 +220,6 @@
 			name = Measurments;
 			sourceTree = "<group>";
 		};
-		EF5ADE1064FF83388D1FDA37 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				40377977A694D0456E8EC4B4 /* Pods_GM_Ceilings.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -251,11 +227,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 879F0C142080C85C003BF3F2 /* Build configuration list for PBXNativeTarget "GM Ceilings" */;
 			buildPhases = (
-				58CD4E0F41237185889506DE /* [CP] Check Pods Manifest.lock */,
 				879F0BFE2080C85C003BF3F2 /* Sources */,
 				879F0BFF2080C85C003BF3F2 /* Frameworks */,
 				879F0C002080C85C003BF3F2 /* Resources */,
-				E7C471FF0B482CC81E0B978B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -316,47 +290,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		58CD4E0F41237185889506DE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GM Ceilings-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E7C471FF0B482CC81E0B978B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-GM Ceilings/Pods-GM Ceilings-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GM Ceilings/Pods-GM Ceilings-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		879F0BFE2080C85C003BF3F2 /* Sources */ = {
@@ -510,7 +443,6 @@
 		};
 		879F0C152080C85C003BF3F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B840A14306B6E12E22CC27DD /* Pods-GM Ceilings.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Igor Rudenko (XWB733PS3Y)";
@@ -528,7 +460,6 @@
 		};
 		879F0C162080C85C003BF3F2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21C0DF7A93436274774E509F /* Pods-GM Ceilings.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Igor Rudenko (XWB733PS3Y)";
