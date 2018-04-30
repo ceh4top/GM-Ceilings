@@ -41,6 +41,7 @@ class CalculateViewController: UIViewController, WKScriptMessageHandler, WKNavig
             urlStr += "&user_id=\(user_id)"
         }
         
+        self.url = NSURL(string: urlStr)
         Log.msg(urlStr)
         
         let request = NSURLRequest(url:url! as URL)
