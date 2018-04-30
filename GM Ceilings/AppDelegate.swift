@@ -16,18 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        if InternetConnection.isConnectedToNetwork() {
+            if UserDefaults.isFirstLoad() {
+                ImagesLoader.loadImages()
+            }
+        }
+        
         
         FirebaseApp.configure()
         
         Geoposition.update()
         UserDefaults.loadUser()
-        
-        if InternetConnection.isConnectedToNetwork() {
-            PList.loadProperty()
-            if UserDefaults.isFirstLoad() {
-                ImagesLoader.loadImages()
-            }
-        }
         
         return true
     }

@@ -43,7 +43,7 @@ public class Helper {
         let session = URLSession(configuration: URLSessionConfiguration.default)
         session.dataTask(with: request, completionHandler: {(data, response, error) -> Void in
             if let data = data {
-                if let response = response as? HTTPURLResponse , 200...299 ~= response.statusCode {
+                if let response = response as? HTTPURLResponse , (200...299 ~= response.statusCode) {
                     let json = try? JSONSerialization.jsonObject(with: data, options: [])
                     taskCallback(true, json as AnyObject)
                 } else {
@@ -161,5 +161,16 @@ extension UserDefaults{
         }
         
         return self.user.firstLoad
+    }
+    
+    static func getProperty() -> [String : String] {
+        if let property = standard.dictionary(forKey: "property") as? [String : String] {
+            return property
+        }
+        return [:]
+    }
+    
+    static func setProperty(_ property: [String : String]) {
+        standard.set(property, forKey: "property")
     }
 }

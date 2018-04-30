@@ -17,20 +17,4 @@ public class PList {
     static let changePswd = api + "changePswd"
     static let getTimes = api + "getTimes"
     static let termsofuse = "https://xn--c1akfdemag2a.xn--p1ai/footer/terms_of_use.html"
-    
-    static var property : [String : String] = [:]
-    
-    static func loadProperty() {
-        Helper.loadServer(href: "http://calc.gm-vrn.ru/iOS/property.json") { (status, json) in
-            Log.msg(json)
-            if status {
-                self.property = json as! [String : String]
-            }
-            Log.msg(self.property)
-        }
-    }
-    
-    static func isEmptyProperty() -> Bool {
-        return !(property.count > 0)
-    }
 }
