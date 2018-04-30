@@ -39,21 +39,21 @@ public class Helper {
     }
     
     public static func execTask(request: URLRequest, taskCallback: @escaping (Bool,
-        AnyObject) -> ()) {
+        Any) -> ()) {
         let session = URLSession(configuration: URLSessionConfiguration.default)
         session.dataTask(with: request, completionHandler: {(data, response, error) -> Void in
             if let data = data {
                 if let response = response as? HTTPURLResponse , 200...299 ~= response.statusCode {
                     let json = try? JSONSerialization.jsonObject(with: data, options: [])
-                    taskCallback(true, json as AnyObject)
+                    taskCallback(true, json as Any)
                 } else {
-                    taskCallback(false, 0 as AnyObject)
+                    taskCallback(false, 0 as Any)
                 }
             }
         }).resume()
     }
     
-    public static func sendServer(parameters: [String : AnyObject], href: String, callback: @escaping (Bool, AnyObject) -> ()) {
+    public static func sendServer(parameters: [String : AnyObject], href: String, callback: @escaping (Bool, Any) -> ()) {
         
         guard let urlPath = URL(string: href) else { return }
         
@@ -64,6 +64,21 @@ public class Helper {
         guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
         
         request.httpBody = httpBody
+        
+        self.execTask(request: request) { (status, json) in
+            DispatchQueue.main.async {
+                callback(status, json)
+            }
+        }
+    }
+    
+    public static func loadServer(href: String, callback: @escaping (Bool, Any) -> ()) {
+        
+        guard let urlPath = URL(string: href) else { return }
+        
+        var request = URLRequest(url: urlPath)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         self.execTask(request: request) { (status, json) in
             DispatchQueue.main.async {

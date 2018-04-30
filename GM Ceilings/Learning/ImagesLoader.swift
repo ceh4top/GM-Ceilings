@@ -17,18 +17,18 @@ public class ImagesLoader {
         
         switch UIDevice().model {
         case "iPad":
-            imagesURL.append("http://calc.gm-vrn.ru/images/ios/iPad/png/0.png")
-            imagesURL.append("http://calc.gm-vrn.ru/images/ios/iPad/png/1.png")
-            imagesURL.append("http://calc.gm-vrn.ru/images/ios/iPad/png/2.png")
-            imagesURL.append("http://calc.gm-vrn.ru/images/ios/iPad/png/3.png")
-            imagesURL.append("http://calc.gm-vrn.ru/images/ios/iPad/png/4.png")
+            imagesURL.append("http://calc.gm-vrn.ru/iOS/iPad/png/0.png")
+            imagesURL.append("http://calc.gm-vrn.ru/iOS/iPad/png/1.png")
+            imagesURL.append("http://calc.gm-vrn.ru/iOS/iPad/png/2.png")
+            imagesURL.append("http://calc.gm-vrn.ru/iOS/iPad/png/3.png")
+            imagesURL.append("http://calc.gm-vrn.ru/iOS/iPad/png/4.png")
             break
         default:
-            imagesURL.append("http://calc.gm-vrn.ru/images/ios/iPhone/png/0.png")
-            imagesURL.append("http://calc.gm-vrn.ru/images/ios/iPhone/png/1.png")
-            imagesURL.append("http://calc.gm-vrn.ru/images/ios/iPhone/png/2.png")
-            imagesURL.append("http://calc.gm-vrn.ru/images/ios/iPhone/png/3.png")
-            imagesURL.append("http://calc.gm-vrn.ru/images/ios/iPhone/png/4.png")
+            imagesURL.append("http://calc.gm-vrn.ru/iOS/iPhone/png/0.png")
+            imagesURL.append("http://calc.gm-vrn.ru/iOS/iPhone/png/1.png")
+            imagesURL.append("http://calc.gm-vrn.ru/iOS/iPhone/png/2.png")
+            imagesURL.append("http://calc.gm-vrn.ru/iOS/iPhone/png/3.png")
+            imagesURL.append("http://calc.gm-vrn.ru/iOS/iPhone/png/4.png")
             break
         }        
         

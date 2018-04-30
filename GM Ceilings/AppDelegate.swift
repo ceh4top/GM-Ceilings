@@ -22,8 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Geoposition.update()
         UserDefaults.loadUser()
         
-        if UserDefaults.isFirstLoad() && InternetConnection.isConnectedToNetwork() {
-            ImagesLoader.loadImages()
+        if InternetConnection.isConnectedToNetwork() {
+            PList.loadProperty()
+            if UserDefaults.isFirstLoad() {
+                ImagesLoader.loadImages()
+            }
         }
         
         return true

@@ -94,6 +94,12 @@ class ViewController: UIViewController, WKScriptMessageHandler, WKNavigationDele
             self.performSegue(withIdentifier: "learning", sender: nil)
         }
         
+        if !PList.isEmptyProperty() {
+            let property = PList.property
+            self.nextPage.setTitle(property["Заказать замер"], for: .normal)
+            self.calcPage.setTitle(property["Самостоятельный замер"], for: .normal)
+        }
+        
         self.nextPage.layer.cornerRadius = 10
         self.calcPage.layer.cornerRadius = 10
         
