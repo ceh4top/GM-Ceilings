@@ -19,10 +19,6 @@ class CalculateViewController: UIViewController, WKScriptMessageHandler, WKNavig
     
     var webView: WKWebView?
     
-    var latitude = "NULL"
-    var longitude = "NULL"
-    var user_id = "NULL"
-    
     var url = NSURL(string: PList.calculation)
     
     override func viewDidLoad() {
@@ -30,16 +26,22 @@ class CalculateViewController: UIViewController, WKScriptMessageHandler, WKNavig
         
         checkInternetConnection()
         
+        var urlStr = PList.calculation + "&ADVT=27"
+        
         if !Geoposition.isEmpty {
-            self.latitude = Geoposition.latitude!.description
-            self.longitude = Geoposition.longitude!.description
+            let latitude = Geoposition.latitude!.description
+            let longitude = Geoposition.longitude!.description
+            
+            urlStr += "&latitude=\(latitude)&longitude=\(longitude)"
         }
         
         if !UserDefaults.isUserEmpty() {
-            self.user_id = String(UserDefaults.getUser().id)
+            let user_id = String(UserDefaults.getUser().id)
+            
+            urlStr += "&user_id=\(user_id)"
         }
         
-        url = NSURL(string: PList.calculation + "&latitude=\(self.latitude)&longitude=\(self.longitude)&user_id=\(self.user_id)&ADVT=27")
+        Log.msg(urlStr)
         
         let request = NSURLRequest(url:url! as URL)
         self.webView!.load(request as URLRequest)
@@ -57,6 +59,15 @@ class CalculateViewController: UIViewController, WKScriptMessageHandler, WKNavig
         super.loadView()
         
         let contentController = WKUserContentController();
+        
+        let stringP : String = "jQuery('a').remove();";
+        
+        let userScript = WKUserScript(
+            source: stringP,
+            injectionTime: WKUserScriptInjectionTime.atDocumentEnd,
+            forMainFrameOnly: true
+        )
+        contentController.addUserScript(userScript)
         
         let config = WKWebViewConfiguration()
         config.userContentController = contentController

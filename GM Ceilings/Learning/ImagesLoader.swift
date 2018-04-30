@@ -15,9 +15,22 @@ public class ImagesLoader {
     static func loadImages() {
         var imagesURL : [String] = []
         
-        imagesURL.append("https://psv4.userapi.com/c834700/u29834478/docs/d17/d23a9e9bdebf/karta.png?extra=mqWEobmObWKoJXDMJUGklCWq3JUyWCCT8oRWw4Gawr5y18KtUE8O2xn8FZYOdUzyQ3LCcQmeZ6hHcNaafzALQn3qJDU5j5Em0cATetoEKxStK4H5x5LNI4mf1scKETCAoJm_XVOeDv4")
-        
-        imagesURL.append("https://psv4.userapi.com/c834700/u29834478/docs/d16/b020bf419bc0/zapis.png?extra=vcT6i0XrcK2jCDTkJwKvXUYU8osIw9zt4K67nvxu95Y2E6QhyN2hdA84KhaBS5_rwtXOStnT9npurOMbTsh7amIeGYJ9v7wwxSeoiFH0Rsx59UvbIXr9lT2oW6CEqRyL0ax9kC8V0_M")
+        switch UIDevice().model {
+        case "iPad":
+            imagesURL.append("http://calc.gm-vrn.ru/images/ios/iPad/png/0.png")
+            imagesURL.append("http://calc.gm-vrn.ru/images/ios/iPad/png/1.png")
+            imagesURL.append("http://calc.gm-vrn.ru/images/ios/iPad/png/2.png")
+            imagesURL.append("http://calc.gm-vrn.ru/images/ios/iPad/png/3.png")
+            imagesURL.append("http://calc.gm-vrn.ru/images/ios/iPad/png/4.png")
+            break
+        default:
+            imagesURL.append("http://calc.gm-vrn.ru/images/ios/iPhone/png/0.png")
+            imagesURL.append("http://calc.gm-vrn.ru/images/ios/iPhone/png/1.png")
+            imagesURL.append("http://calc.gm-vrn.ru/images/ios/iPhone/png/2.png")
+            imagesURL.append("http://calc.gm-vrn.ru/images/ios/iPhone/png/3.png")
+            imagesURL.append("http://calc.gm-vrn.ru/images/ios/iPhone/png/4.png")
+            break
+        }        
         
         for str in imagesURL {
             Log.msg(str)
@@ -29,5 +42,9 @@ public class ImagesLoader {
                 }
             }
         }
+    }
+    
+    static func clearImages() {
+        self.images.removeAll()
     }
 }

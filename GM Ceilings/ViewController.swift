@@ -11,6 +11,7 @@ import WebKit
 import CoreLocation
 
 class ViewController: UIViewController, WKScriptMessageHandler, WKNavigationDelegate, UISearchBarDelegate {
+    
     @IBOutlet weak var navigationBar: UINavigationItem!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -19,12 +20,12 @@ class ViewController: UIViewController, WKScriptMessageHandler, WKNavigationDele
     @IBOutlet weak var calcPage: StyleUIButton!
     @IBOutlet weak var newView: UIView!
     @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet var containerView : UIView! = nil
     var webView: WKWebView?
     
     var locationManager:CLLocationManager! = CLLocationManager()
     
     @IBAction func showCalc(_ sender: StyleUIButton) {
+        
         self.tabBarController?.selectedIndex = 0
     }
     
@@ -47,7 +48,7 @@ class ViewController: UIViewController, WKScriptMessageHandler, WKNavigationDele
         )
         
         if !Geoposition.isEmpty {
-            let stringP : String = "GoAddressP('" + Geoposition.latitude!.description + "', '" + Geoposition.longitude!.description + "')";
+            let stringP : String = "GoAddressP('" + Geoposition.latitude!.description + "', '" + Geoposition.longitude!.description + "');";
             
             let userScript = WKUserScript(
                 source: stringP,
@@ -89,9 +90,12 @@ class ViewController: UIViewController, WKScriptMessageHandler, WKNavigationDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if UserDefaults.isFirstLoad() && InternetConnection.isConnectedToNetwork() {
+            self.performSegue(withIdentifier: "learning", sender: nil)
+        }
+        
         self.nextPage.layer.cornerRadius = 10
         self.calcPage.layer.cornerRadius = 10
-        
         
         if let search = self.navigationBar.titleView as? UISearchBar {
             search.placeholder = "Введите адрес"

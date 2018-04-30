@@ -74,13 +74,12 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
         }
         
         if success == 0 {
-            if UserDefaults.isUserEmpty() {
+            if !UserDefaults.isUserEmpty() {
                 parameters.updateValue(UserDefaults.getUser().id.description, forKey: "user_id")
-            } else {
-                parameters.updateValue(clientName.text!, forKey: "name")
-                parameters.updateValue(clientPhone.text!, forKey: "phone")
             }
             
+            parameters.updateValue(clientName.text!, forKey: "name")
+            parameters.updateValue(clientPhone.text!, forKey: "phone")
             parameters.updateValue(clientAddress.text!, forKey: "address")
             parameters.updateValue(clientaApartmentNumber.text!, forKey: "apartmentNumber")
             parameters.updateValue(clientDate.text!, forKey: "date")
@@ -216,7 +215,7 @@ class FormViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
                                 }
                                 
                                 if !UserDefaults.isChangedPassword() {
-                                    self.performSegue(withIdentifier: "showProfile", sender: self)
+                                    self.performSegue(withIdentifier: "showProfileView", sender: nil)
                                 }
                                 else {
                                     flagBack = true

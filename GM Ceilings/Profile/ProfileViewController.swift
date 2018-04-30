@@ -41,7 +41,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         user.changedPassword = true
         UserDefaults.setUser(user)
         
-        hideAll()
+        self.hideAll()
         self.Profile.isHidden = false
     }
     
@@ -50,6 +50,15 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         self.Profile.isHidden = true
         self.Password.isHidden = true
         self.view.endEditing(true)
+        self.clearAll()
+    }
+    
+    func clearAll() {
+        self.loginEntryTF.text = "+7"
+        self.passwordEntryTF.text = ""
+        self.passwordOldTF.text = ""
+        self.passwordOneTF.text = ""
+        self.passwordTwoTF.text = ""
     }
     
     // Profile
@@ -70,7 +79,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         self.passwordOldL.isHidden = false
         self.passwordOldTF.isHidden = false
         
-        hideAll()
+        self.hideAll()
         self.Password.isHidden = false
         self.navigationItem.title = "Изменение пароля"
     }
@@ -86,9 +95,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             self.navigationItem.title = "Вход"
             
             self.Entry.isHidden =  false
-            
-            self.loginEntryTF.delegate = self
-            self.passwordEntryTF.delegate = self
         }
         else if !user.changedPassword {
             self.navigationItem.title = "Изменение пароля"
@@ -97,9 +103,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             self.passwordOldTF.isHidden = true
             
             self.Password.isHidden = false
-            
-            self.passwordOneTF.delegate = self
-            self.passwordTwoTF.delegate = self
         }
         else {
             self.navigationItem.title = "Профиль"
@@ -108,6 +111,11 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
             loginProfileL.text = user.login
         }
+        self.loginEntryTF.delegate = self
+        self.passwordEntryTF.delegate = self
+        
+        self.passwordOneTF.delegate = self
+        self.passwordTwoTF.delegate = self
     }
 
     override func didReceiveMemoryWarning() {

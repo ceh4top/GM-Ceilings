@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,10 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        FirebaseApp.configure()
+        
         Geoposition.update()
         UserDefaults.loadUser()
         
-        if UserDefaults.isFirstLoad() {
+        if UserDefaults.isFirstLoad() && InternetConnection.isConnectedToNetwork() {
             ImagesLoader.loadImages()
         }
         
