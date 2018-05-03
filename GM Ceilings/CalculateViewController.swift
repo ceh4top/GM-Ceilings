@@ -21,6 +21,8 @@ class CalculateViewController: UIViewController, WKScriptMessageHandler, WKNavig
     
     var url = NSURL(string: PList.calculation)
     
+    var userAuth: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,7 +40,8 @@ class CalculateViewController: UIViewController, WKScriptMessageHandler, WKNavig
         if !UserDefaults.isUserEmpty() {
             let user_id = String(UserDefaults.getUser().id)
             
-            urlStr += "&user_id=\(user_id)"
+            urlStr += "&user_id=\(user_id!)"
+            userAuth = true
         }
         
         self.url = NSURL(string: urlStr)
@@ -119,5 +122,41 @@ class CalculateViewController: UIViewController, WKScriptMessageHandler, WKNavig
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         self.activityIndicator.stopAnimating()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        var reload = false
+        let userAuthE = UserDefaults.isUserEmpty()
+        
+        if self.userAuth && userAuthE || !self.userAuth && !userAuthE {
+            reload = true
+        }
+        
+        self.userAuth = false
+        if reload {
+            var urlStr = PList.calculation + "&ADVT=27"
+            
+            if !Geoposition.isEmpty {
+                let latitude = Geoposition.latitude!.description
+                let longitude = Geoposition.longitude!.description
+                
+                urlStr += "&latitude=\(latitude)&longitude=\(longitude)"
+            }
+            
+            if !userAuthE {
+                let user_id = String(UserDefaults.getUser().id)
+                
+                urlStr += "&user_id=\(user_id!)"
+                self.userAuth = true
+            }
+            
+            self.url = NSURL(string: urlStr)
+            Log.msg(urlStr)
+            
+            let request = NSURLRequest(url:url! as URL)
+            self.webView!.load(request as URLRequest)
+        }
     }
 }

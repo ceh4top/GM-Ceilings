@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		87208B2720887D0300754113 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87208B2620887D0300754113 /* Helper.swift */; };
-		8751E03D2096F8A100611748 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8751E03C2096F8A100611748 /* GoogleService-Info.plist */; };
 		879F0C062080C85C003BF3F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F0C052080C85C003BF3F2 /* AppDelegate.swift */; };
 		879F0C082080C85C003BF3F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F0C072080C85C003BF3F2 /* ViewController.swift */; };
 		879F0C0B2080C85C003BF3F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 879F0C092080C85C003BF3F2 /* Main.storyboard */; };
@@ -44,7 +43,6 @@
 
 /* Begin PBXFileReference section */
 		87208B2620887D0300754113 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helper.swift; path = Helpers/Helper.swift; sourceTree = "<group>"; };
-		8751E03C2096F8A100611748 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		879F0C022080C85C003BF3F2 /* GM Ceilings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GM Ceilings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		879F0C052080C85C003BF3F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		879F0C072080C85C003BF3F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 				879F0C0C2080C85C003BF3F2 /* Assets.xcassets */,
 				879F0C0E2080C85C003BF3F2 /* LaunchScreen.storyboard */,
 				879F0C112080C85C003BF3F2 /* Info.plist */,
-				8751E03C2096F8A100611748 /* GoogleService-Info.plist */,
 			);
 			path = "GM Ceilings";
 			sourceTree = "<group>";
@@ -285,7 +282,6 @@
 				879F0C272080C9D7003BF3F2 /* index.html in Resources */,
 				879F0C0D2080C85C003BF3F2 /* Assets.xcassets in Resources */,
 				879F0C0B2080C85C003BF3F2 /* Main.storyboard in Resources */,
-				8751E03D2096F8A100611748 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +445,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = XWB733PS3Y;
 				INFOPLIST_FILE = "GM Ceilings/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.gm-vrn.GM-Ceilings";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -466,6 +463,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = XWB733PS3Y;
 				INFOPLIST_FILE = "GM Ceilings/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.gm-vrn.GM-Ceilings";
 				PRODUCT_NAME = "$(TARGET_NAME)";
