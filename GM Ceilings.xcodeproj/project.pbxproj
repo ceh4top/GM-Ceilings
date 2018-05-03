@@ -452,6 +452,7 @@
 				PROVISIONING_PROFILE = "8b98ed8c-672f-4e21-8d2d-03368c101039";
 				PROVISIONING_PROFILE_SPECIFIER = "Игорь Руденко";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -470,6 +471,7 @@
 				PROVISIONING_PROFILE = "8b98ed8c-672f-4e21-8d2d-03368c101039";
 				PROVISIONING_PROFILE_SPECIFIER = "Игорь Руденко";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
